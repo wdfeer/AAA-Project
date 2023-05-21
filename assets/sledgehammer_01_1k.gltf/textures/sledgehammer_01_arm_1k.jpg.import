@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3af23d74ni18"
-path.s3tc="res://.godot/imported/sledgehammer_01_nor_gl_1k.jpg-5641864e31c513421e1287f246331f80.s3tc.ctex"
+uid="uid://dwxu60lqg575s"
+path.s3tc="res://.godot/imported/sledgehammer_01_arm_1k.jpg-5143b98f0880b5b91f9ebb89a490574e.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://sledgehammer_01_1k.gltf/textures/sledgehammer_01_nor_gl_1k.jpg"
-dest_files=["res://.godot/imported/sledgehammer_01_nor_gl_1k.jpg-5641864e31c513421e1287f246331f80.s3tc.ctex"]
+source_file="res://assets/sledgehammer_01_1k.gltf/textures/sledgehammer_01_arm_1k.jpg"
+dest_files=["res://.godot/imported/sledgehammer_01_arm_1k.jpg-5143b98f0880b5b91f9ebb89a490574e.s3tc.ctex"]
 
 [params]
 
@@ -20,12 +20,12 @@ compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/normal_map=1
+compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=1
-roughness/src_normal="res://sledgehammer_01_1k.gltf/textures/sledgehammer_01_nor_gl_1k.jpg"
+roughness/mode=0
+roughness/src_normal=""
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false

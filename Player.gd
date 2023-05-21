@@ -9,6 +9,8 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 @onready var camera = $PlayerCamera
 
+var hp: float = 100;
+
 func _physics_process(delta):
 	if global_position.y < -3:
 		get_tree().change_scene_to_file("res://game.tscn")

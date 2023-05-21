@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cam5gju54hkw4"
-path.s3tc="res://.godot/imported/sledgehammer_01_arm_1k.jpg-7d3d7d8b33319fb9f41189cac05271d6.s3tc.ctex"
+uid="uid://l3i41su1w0yf"
+path.s3tc="res://.godot/imported/sledgehammer_01_diff_1k.jpg-bcbf3a0caa2a8d9c43b8c5b2d481aba8.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://sledgehammer_01_1k.gltf/textures/sledgehammer_01_arm_1k.jpg"
-dest_files=["res://.godot/imported/sledgehammer_01_arm_1k.jpg-7d3d7d8b33319fb9f41189cac05271d6.s3tc.ctex"]
+source_file="res://assets/sledgehammer_01_1k.gltf/textures/sledgehammer_01_diff_1k.jpg"
+dest_files=["res://.godot/imported/sledgehammer_01_diff_1k.jpg-bcbf3a0caa2a8d9c43b8c5b2d481aba8.s3tc.ctex"]
 
 [params]
 
