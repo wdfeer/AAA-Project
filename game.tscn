@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://dg4twjbblcw5h"]
+[gd_scene load_steps=14 format=3 uid="uid://dg4twjbblcw5h"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_pr1b0"]
 [ext_resource type="Script" path="res://PlayerCamera.gd" id="2_18mc0"]
 [ext_resource type="Texture2D" uid="uid://bykbd4bs83pgc" path="res://addons/kenney_prototype_textures/orange/texture_01.png" id="2_x2qmg"]
 [ext_resource type="Texture2D" uid="uid://cg7qlx1ir41sd" path="res://assets/circle.svg" id="4_8kkm6"]
+[ext_resource type="PackedScene" uid="uid://dwftgufm1tyyx" path="res://sledgehammer_01_1k.gltf/sledgehammer_01_1k.gltf" id="4_brrak"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_iarg5"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -37,9 +38,11 @@ size = Vector2(100, 100)
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 1152.0
-offset_bottom = 648.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Crosshair" type="TextureRect" parent="UI"]
 modulate = Color(0, 1, 0, 1)
@@ -49,8 +52,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_right = 4.0
-offset_bottom = 4.0
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 2.0
+offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(2, 2)
@@ -72,6 +77,9 @@ script = ExtResource("1_pr1b0")
 transform = Transform3D(0.999971, 0.00760956, 0, -0.00760956, 0.999971, 0, 0, 0, 1, 0, 0.453843, 0)
 current = true
 script = ExtResource("2_18mc0")
+
+[node name="sledgehammer_01_1k" parent="Player/PlayerCamera" instance=ExtResource("4_brrak")]
+transform = Transform3D(-0.146828, 0.135372, 0.979855, -0.204647, 0.965001, -0.163986, -0.967761, -0.224602, -0.113986, 0.266304, -0.279363, -0.793619)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
 shape = SubResource("CapsuleShape3D_fdvc3")
