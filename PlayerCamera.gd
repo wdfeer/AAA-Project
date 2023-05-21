@@ -1,6 +1,6 @@
 extends Camera3D
 
-const MOUSE_SENSITIVITY = 1;
+const MOUSE_SENSITIVITY = 0.5;
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
