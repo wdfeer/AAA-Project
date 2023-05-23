@@ -19,5 +19,5 @@ func _physics_process(delta):
 	old_global_positions = [global_position, old_global_positions[0], old_global_positions[1]]
 
 func get_damage():
-	var velocity = (global_position - old_global_positions[2]) * 60 / 3
+	var velocity = (global_position - old_global_positions[2]) * 60 / len(old_global_positions)
 	return velocity.length()
