@@ -22,6 +22,8 @@ func jump():
 
 var hp: float = 100;
 func damage(value: float):
+	print_debug("Enemy damaged by " + str(value))
+	
 	hp -= value
 	if hp <= 0:
 		queue_free()
