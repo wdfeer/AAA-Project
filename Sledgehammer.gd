@@ -13,11 +13,11 @@ func damage(enemy):
 
 
 
-var old_global_position: Vector3
+var old_global_positions: PackedVector3Array = [null, null, null]
 
 func _physics_process(delta):
-	old_global_position = global_position
+	old_global_positions = [global_position, old_global_positions[0], old_global_positions[1]]
 
 func get_damage():
-	var velocity = (global_position - old_global_position) * 60
+	var velocity = (global_position - old_global_positions[2]) * 60 / 3
 	return velocity.length()
