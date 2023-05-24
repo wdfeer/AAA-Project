@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dg4twjbblcw5h"]
+[gd_scene load_steps=18 format=3 uid="uid://dg4twjbblcw5h"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_pr1b0"]
 [ext_resource type="Script" path="res://PlayerCamera.gd" id="2_18mc0"]
@@ -6,7 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://cg7qlx1ir41sd" path="res://assets/circle.svg" id="4_8kkm6"]
 [ext_resource type="PackedScene" uid="uid://be7ja1bjje8xv" path="res://assets/sledgehammer_01_1k.gltf/sledgehammer_01_1k.gltf" id="4_kcp83"]
 [ext_resource type="Script" path="res://Sledgehammer.gd" id="5_tdixj"]
-[ext_resource type="Script" path="res://Enemy.gd" id="6_hn4xo"]
+[ext_resource type="PackedScene" uid="uid://cue72tk1mnowl" path="res://enemy.tscn" id="7_aqj8v"]
+[ext_resource type="Script" path="res://EnemySpawner.gd" id="8_1bjp3"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_iarg5"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -38,13 +39,6 @@ uv1_scale = Vector3(100, 100, 100)
 [sub_resource type="PlaneMesh" id="PlaneMesh_is7fy"]
 material = SubResource("StandardMaterial3D_tfohm")
 size = Vector2(100, 100)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j66xm"]
-albedo_color = Color(1, 0, 0, 1)
-roughness = 0.8
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_lvxuv"]
-material = SubResource("StandardMaterial3D_j66xm")
 
 [node name="Game" type="Node3D"]
 
@@ -132,14 +126,21 @@ shape = SubResource("BoxShape3D_dxse6")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
 mesh = SubResource("PlaneMesh_is7fy")
 
-[node name="Enemy" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -16)
-script = ExtResource("6_hn4xo")
+[node name="EnemySpawner" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+script = ExtResource("8_1bjp3")
+enemy_scene = ExtResource("7_aqj8v")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Enemy"]
-shape = SubResource("CapsuleShape3D_fdvc3")
+[node name="spawnpoint1" type="Node3D" parent="EnemySpawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 0, 40)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Enemy"]
-mesh = SubResource("CapsuleMesh_lvxuv")
+[node name="spawnpoint2" type="Node3D" parent="EnemySpawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 0, -40)
+
+[node name="spawnpoint3" type="Node3D" parent="EnemySpawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 0, 40)
+
+[node name="spawnpoint4" type="Node3D" parent="EnemySpawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 0, -40)
 
 [connection signal="body_entered" from="Player/PlayerCamera/Sledgehammer/Area3D" to="Player/PlayerCamera/Sledgehammer" method="_on_body_entered"]
