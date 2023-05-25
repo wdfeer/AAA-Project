@@ -9,7 +9,7 @@ const JUMP_VELOCITY = 4.5
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 @onready var player: CharacterBody3D = $"../../Player"
-@onready var kill_counter: KillCounter = $"../../UI/KillCounter"
+@onready var kill_counter: Counter = $"../../UI/KillCounter"
 
 func _physics_process(delta):
 	# Add the gravity.

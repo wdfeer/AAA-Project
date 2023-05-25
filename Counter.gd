@@ -1,4 +1,4 @@
-class_name KillCounter
+class_name Counter
 extends Label
 
 var count: int = 0
