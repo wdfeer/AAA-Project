@@ -19,12 +19,11 @@ func _physics_process(delta):
 	
 	move_and_slide()
 
-func enemy_ai(delta):
-	var direction: Vector3 = global_position.direction_to(player.global_position).normalized()
-	if direction.y > 0:
-		direction.y = 0
+func enemy_ai(delta):	
+	var velocity: Vector3 = global_position.direction_to(player.global_position).normalized() * SPEED
 	
-	velocity = direction * SPEED
+	self.velocity.x = velocity.x
+	self.velocity.z = velocity.z
 
 func jump():
 	velocity.y = JUMP_VELOCITY
