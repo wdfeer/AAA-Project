@@ -9,6 +9,7 @@ const JUMP_VELOCITY = 4.5
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 @onready var player: CharacterBody3D = $"../../Player"
+@onready var kill_counter: KillCounter = $"../../UI/KillCounter"
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -27,7 +28,7 @@ func enemy_ai(delta):
 
 func jump():
 	velocity.y = JUMP_VELOCITY
-	
+
 
 var hp: float = 100;
 func damage(value: float):
@@ -35,4 +36,9 @@ func damage(value: float):
 	
 	hp -= value
 	if hp <= 0:
-		queue_free()
+		die()
+
+func die():
+	queue_free()
+	
+	kill_counter.add()
