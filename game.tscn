@@ -1,9 +1,10 @@
-[gd_scene load_steps=19 format=3 uid="uid://baofexffnruir"]
+[gd_scene load_steps=20 format=3 uid="uid://7577ojhb4roh"]
 
 [ext_resource type="Script" path="res://Counter.gd" id="1_kclw0"]
 [ext_resource type="Script" path="res://Player.gd" id="1_pr1b0"]
 [ext_resource type="Script" path="res://PlayerCamera.gd" id="2_18mc0"]
 [ext_resource type="Texture2D" uid="uid://bykbd4bs83pgc" path="res://addons/kenney_prototype_textures/orange/texture_01.png" id="2_x2qmg"]
+[ext_resource type="Script" path="res://FadingLabel.gd" id="3_g8evn"]
 [ext_resource type="Texture2D" uid="uid://cg7qlx1ir41sd" path="res://assets/circle.svg" id="4_8kkm6"]
 [ext_resource type="PackedScene" uid="uid://be7ja1bjje8xv" path="res://assets/sledgehammer_01_1k.gltf/sledgehammer_01_1k.gltf" id="4_kcp83"]
 [ext_resource type="Script" path="res://Sledgehammer.gd" id="5_tdixj"]
@@ -103,6 +104,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 32
 horizontal_alignment = 1
+script = ExtResource("3_g8evn")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_b8hfi")

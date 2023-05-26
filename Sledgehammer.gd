@@ -1,6 +1,6 @@
 extends Node3D
 
-@onready var damage_label: Label = $"../../../UI/DamageLabel"
+@onready var damage_label: FadingLabel = $"../../../UI/DamageLabel"
 
 func _on_body_entered(body):
 	if (body is Enemy):
@@ -8,7 +8,7 @@ func _on_body_entered(body):
 
 func damage(enemy: Enemy):
 	var dmg = get_damage(enemy)
-	damage_label.text = "%0.1f" % dmg
+	damage_label.show_text("%0.1f" % dmg) 
 	enemy.damage(dmg)
 
 
