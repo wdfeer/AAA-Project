@@ -25,5 +25,7 @@ func _process(delta):
 
 func spawn_enemy():
 	var enemy = enemy_scene.instantiate() as Enemy
-	enemy.global_position = spawnpoints[rng.randi_range(0, len(spawnpoints) - 1)]
 	add_child(enemy)
+	
+	var position = spawnpoints[rng.randi_range(0, len(spawnpoints) - 1)]
+	enemy.global_position = position
