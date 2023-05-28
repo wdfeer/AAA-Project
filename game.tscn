@@ -115,6 +115,7 @@ shadow_enabled = true
 
 [node name="Player" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+collision_mask = 2
 script = ExtResource("1_pr1b0")
 
 [node name="PlayerCamera" type="Camera3D" parent="Player"]
@@ -128,6 +129,8 @@ script = ExtResource("5_tdixj")
 
 [node name="Area3D" type="Area3D" parent="Player/PlayerCamera/Sledgehammer"]
 transform = Transform3D(1, -4.65661e-10, 0, -2.77556e-17, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+collision_layer = 0
+collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player/PlayerCamera/Sledgehammer/Area3D"]
 transform = Transform3D(1, 9.60461e-32, 0, 9.86047e-32, 1, 0, 6.61744e-24, -1.27055e-21, 1, 0, 0, 0.23)
@@ -140,6 +143,8 @@ shape = SubResource("CapsuleShape3D_fdvc3")
 mesh = SubResource("CapsuleMesh_60cav")
 
 [node name="Floor" type="StaticBody3D" parent="."]
+collision_layer = 3
+collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
 shape = SubResource("BoxShape3D_dxse6")

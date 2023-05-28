@@ -12,6 +12,7 @@ roughness = 0.8
 material = SubResource("StandardMaterial3D_j66xm")
 
 [node name="Enemy" type="CharacterBody3D"]
+collision_layer = 2
 script = ExtResource("1_wa66s")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
