@@ -34,4 +34,8 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
+	var collision: KinematicCollision3D = move_and_collide(velocity * delta, true)
+	if collision != null && collision.get_collider() is Enemy:
+		get_tree().change_scene_to_file("res://game.tscn")
+
 	move_and_slide()
