@@ -9,8 +9,6 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 @onready var camera = $PlayerCamera
 
-var hp: float = 100;
-
 func _physics_process(delta):
 	if global_position.y < -3:
 		get_tree().change_scene_to_file("res://game.tscn")
@@ -34,8 +32,32 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
+	if immunity_time > 0:
+		immunity_time -= delta
+	
 	var collision: KinematicCollision3D = move_and_collide(velocity * delta, true)
 	if collision != null && collision.get_collider() is Enemy:
-		get_tree().change_scene_to_file("res://game.tscn")
-
+		damage(20)
+	
 	move_and_slide()
+
+
+@onready var hp_label: Label = $"../UI/HpLabel"
+
+var hp: float = 100;
+
+var immunity_time: float = 0;
+
+func damage(value: float):
+	if immunity_time > 0:
+		return
+	
+	hp -= value
+	hp_label.text = str(hp)
+	if hp <= 0:
+		die()
+	
+	immunity_time = 1
+
+func die():
+	get_tree().change_scene_to_file("res://game.tscn")	
