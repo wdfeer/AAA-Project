@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cue72tk1mnowl"]
+[gd_scene load_steps=6 format=3 uid="uid://cue72tk1mnowl"]
 
 [ext_resource type="Script" path="res://Enemy.gd" id="1_wa66s"]
+[ext_resource type="PackedScene" uid="uid://bl1bjmh3w0mv0" path="res://assets/sword/sword.gltf" id="2_7v2x3"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fdvc3"]
 
@@ -20,3 +21,8 @@ shape = SubResource("CapsuleShape3D_fdvc3")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_lvxuv")
+
+[node name="Sword" type="Node3D" parent="."]
+
+[node name="sword" parent="Sword" instance=ExtResource("2_7v2x3")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.5, 0, 0)

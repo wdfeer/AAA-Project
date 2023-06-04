@@ -1,15 +1,18 @@
 class_name Enemy
 extends CharacterBody3D
-	
+
 
 const SPEED = 3.0
 const JUMP_VELOCITY = 4.5
+
+const SWORD_ROTATION_SPEED = 3.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 @onready var player: CharacterBody3D = $"../../Player"
 @onready var kill_counter: Counter = $"../../UI/KillCounter"
+@onready var sword: Node3D = $Sword
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -25,6 +28,8 @@ func enemy_ai(delta):
 	
 	self.velocity.x = velocity.x
 	self.velocity.z = velocity.z
+	
+	sword.rotate_y(SWORD_ROTATION_SPEED * delta)
 
 func jump():
 	velocity.y = JUMP_VELOCITY
