@@ -3,7 +3,7 @@ extends Node3D
 @onready var damage_label: FadingLabel = $"../../../UI/DamageLabel"
 
 func _on_body_entered(body):
-	if (body is Enemy):
+	if (visible and body is Enemy):
 		damage(body)
 
 func damage(enemy: Enemy):

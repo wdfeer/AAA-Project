@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://7577ojhb4roh"]
+[gd_scene load_steps=21 format=3 uid="uid://7577ojhb4roh"]
 
 [ext_resource type="Script" path="res://Counter.gd" id="1_kclw0"]
 [ext_resource type="Script" path="res://Player.gd" id="1_pr1b0"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://Sledgehammer.gd" id="5_tdixj"]
 [ext_resource type="PackedScene" uid="uid://cue72tk1mnowl" path="res://enemy.tscn" id="7_aqj8v"]
 [ext_resource type="Script" path="res://EnemySpawner.gd" id="8_1bjp3"]
+[ext_resource type="PackedScene" uid="uid://dqsoqe73kqyxu" path="res://assets/colt_m1911/scene.gltf" id="8_7qpmv"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_iarg5"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -139,6 +140,7 @@ script = ExtResource("2_18mc0")
 
 [node name="Sledgehammer" parent="Player/PlayerCamera" instance=ExtResource("4_kcp83")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -0.25, -2)
+visible = false
 script = ExtResource("5_tdixj")
 
 [node name="Area3D" type="Area3D" parent="Player/PlayerCamera/Sledgehammer"]
@@ -149,6 +151,9 @@ collision_mask = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player/PlayerCamera/Sledgehammer/Area3D"]
 transform = Transform3D(1, 9.60461e-32, 0, 9.86047e-32, 1, 0, 6.61744e-24, -1.27055e-21, 1, 0, 0, 0.23)
 shape = SubResource("BoxShape3D_fce6w")
+
+[node name="Colt" parent="Player/PlayerCamera" instance=ExtResource("8_7qpmv")]
+transform = Transform3D(5.78617e-07, -7.60934e-05, -0.00999971, -7.60934e-05, 0.00999942, -7.60956e-05, 0.00999971, 7.60956e-05, -4.37114e-10, 0.2, -0.3, -0.687)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
 shape = SubResource("CapsuleShape3D_fdvc3")
