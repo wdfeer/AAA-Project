@@ -1,16 +1,8 @@
-extends Node3D
-
-@onready var damage_label: FadingLabel = $"../../../UI/DamageLabel"
+extends Weapon
 
 func _on_body_entered(body):
 	if (visible and body is Enemy):
-		damage(body)
-
-func damage(enemy: Enemy):
-	var dmg = get_damage(enemy)
-	damage_label.show_text("%0.1f" % dmg) 
-	enemy.damage(dmg)
-
+		damage(body, get_damage(body))
 
 
 var old_global_positions: PackedVector3Array = [null, null, null]
