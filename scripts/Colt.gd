@@ -20,3 +20,9 @@ func attack():
 	if result and result.collider is Enemy:
 		damage(result.collider, dmg)
 		print("DAMAGED")
+	
+	play_fire_animation()
+
+func play_fire_animation():
+	anim_player.stop()
+	anim_player.play("FireNoLoad")

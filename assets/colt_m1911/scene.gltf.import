@@ -28,5 +28,18 @@ animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 import_script/path=""
-_subresources={}
+_subresources={
+"animations": {
+"Fire": {
+"slice_1/end_frame": 180,
+"slice_1/loop_mode": null,
+"slice_1/name": "FireNoLoad",
+"slice_1/save_to_file/enabled": null,
+"slice_1/save_to_file/keep_custom_tracks": null,
+"slice_1/save_to_file/path": null,
+"slice_1/start_frame": 123,
+"slices/amount": 1
+}
+}
+}
 gltf/embedded_image_handling=1
