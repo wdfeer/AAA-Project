@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://cue72tk1mnowl"]
 
-[ext_resource type="Script" path="res://Enemy.gd" id="1_wa66s"]
+[ext_resource type="Script" path="res://scripts/Enemy.gd" id="1_ih8ru"]
 [ext_resource type="PackedScene" uid="uid://bl1bjmh3w0mv0" path="res://assets/sword/sword.gltf" id="2_7v2x3"]
-[ext_resource type="Script" path="res://Sword.gd" id="2_uj2d2"]
+[ext_resource type="Script" path="res://scripts/Sword.gd" id="2_oq2ie"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fdvc3"]
 
@@ -18,7 +18,7 @@ size = Vector3(2, 0.2, 0.4)
 
 [node name="Enemy" type="CharacterBody3D"]
 collision_layer = 2
-script = ExtResource("1_wa66s")
+script = ExtResource("1_ih8ru")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_fdvc3")
@@ -27,7 +27,7 @@ shape = SubResource("CapsuleShape3D_fdvc3")
 mesh = SubResource("CapsuleMesh_lvxuv")
 
 [node name="Sword" type="Node3D" parent="."]
-script = ExtResource("2_uj2d2")
+script = ExtResource("2_oq2ie")
 
 [node name="SwordModel" parent="Sword" instance=ExtResource("2_7v2x3")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.5, 0, 0)

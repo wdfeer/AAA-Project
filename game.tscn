@@ -1,16 +1,16 @@
 [gd_scene load_steps=21 format=3 uid="uid://7577ojhb4roh"]
 
-[ext_resource type="Script" path="res://Counter.gd" id="1_kclw0"]
-[ext_resource type="Script" path="res://Player.gd" id="1_pr1b0"]
-[ext_resource type="Script" path="res://PlayerCamera.gd" id="2_18mc0"]
+[ext_resource type="Script" path="res://scripts/Counter.gd" id="1_bnt8j"]
 [ext_resource type="Texture2D" uid="uid://bykbd4bs83pgc" path="res://addons/kenney_prototype_textures/orange/texture_01.png" id="2_x2qmg"]
-[ext_resource type="Script" path="res://FadingLabel.gd" id="3_g8evn"]
+[ext_resource type="Script" path="res://scripts/FadingLabel.gd" id="3_mglq1"]
 [ext_resource type="Texture2D" uid="uid://cg7qlx1ir41sd" path="res://assets/circle.svg" id="4_8kkm6"]
+[ext_resource type="Script" path="res://scripts/Player.gd" id="4_k58lj"]
 [ext_resource type="PackedScene" uid="uid://be7ja1bjje8xv" path="res://assets/sledgehammer_01_1k.gltf/sledgehammer_01_1k.gltf" id="4_kcp83"]
-[ext_resource type="Script" path="res://Sledgehammer.gd" id="5_tdixj"]
+[ext_resource type="Script" path="res://scripts/PlayerCamera.gd" id="5_6j7tt"]
 [ext_resource type="PackedScene" uid="uid://cue72tk1mnowl" path="res://enemy.tscn" id="7_aqj8v"]
-[ext_resource type="Script" path="res://EnemySpawner.gd" id="8_1bjp3"]
+[ext_resource type="Script" path="res://scripts/Sledgehammer.gd" id="7_k5gsf"]
 [ext_resource type="PackedScene" uid="uid://dqsoqe73kqyxu" path="res://assets/colt_m1911/scene.gltf" id="8_7qpmv"]
+[ext_resource type="Script" path="res://scripts/EnemySpawner.gd" id="10_ei2e3"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_iarg5"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -70,7 +70,7 @@ grow_vertical = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 32
 horizontal_alignment = 1
-script = ExtResource("1_kclw0")
+script = ExtResource("1_bnt8j")
 
 [node name="Crosshair" type="TextureRect" parent="UI"]
 modulate = Color(0, 1, 0, 1)
@@ -107,7 +107,7 @@ grow_vertical = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 32
 horizontal_alignment = 1
-script = ExtResource("3_g8evn")
+script = ExtResource("3_mglq1")
 
 [node name="HpLabel" type="Label" parent="UI"]
 self_modulate = Color(1, 0.627451, 0.627451, 1)
@@ -131,17 +131,17 @@ shadow_enabled = true
 [node name="Player" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 collision_mask = 2
-script = ExtResource("1_pr1b0")
+script = ExtResource("4_k58lj")
 
 [node name="PlayerCamera" type="Camera3D" parent="Player"]
 transform = Transform3D(0.999971, 0.00760956, 0, -0.00760956, 0.999971, 0, 0, 0, 1, 0, 0.453843, 0)
 current = true
-script = ExtResource("2_18mc0")
+script = ExtResource("5_6j7tt")
 
 [node name="Sledgehammer" parent="Player/PlayerCamera" instance=ExtResource("4_kcp83")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -0.25, -2)
 visible = false
-script = ExtResource("5_tdixj")
+script = ExtResource("7_k5gsf")
 
 [node name="Area3D" type="Area3D" parent="Player/PlayerCamera/Sledgehammer"]
 transform = Transform3D(1, -4.65661e-10, 0, -2.77556e-17, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
@@ -173,7 +173,7 @@ mesh = SubResource("PlaneMesh_is7fy")
 
 [node name="EnemySpawner" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-script = ExtResource("8_1bjp3")
+script = ExtResource("10_ei2e3")
 enemy_scene = ExtResource("7_aqj8v")
 
 [node name="spawnpoint1" type="Node3D" parent="EnemySpawner"]
