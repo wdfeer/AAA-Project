@@ -13,6 +13,7 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var player: CharacterBody3D = $"../../Player"
 @onready var kill_counter: Counter = $"../../UI/KillCounter"
 @onready var sword: Node3D = $Sword
+@onready var anim_player: AnimationPlayer = $Shiteyanyo/AnimationPlayer
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -28,6 +29,11 @@ func enemy_ai(delta):
 	
 	self.velocity.x = velocity.x
 	self.velocity.z = velocity.z
+	
+	rotation.y = -Vector2(velocity.x, velocity.z).angle()
+	
+	if velocity.length() > 0:
+		anim_player.play("Walk", -1, 2)
 	
 	sword.rotate_y(SWORD_ROTATION_SPEED * delta)
 

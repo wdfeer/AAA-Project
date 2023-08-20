@@ -1,17 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://cue72tk1mnowl"]
+[gd_scene load_steps=7 format=3 uid="uid://cue72tk1mnowl"]
 
 [ext_resource type="Script" path="res://scripts/Enemy.gd" id="1_ih8ru"]
 [ext_resource type="PackedScene" uid="uid://bl1bjmh3w0mv0" path="res://assets/sword/sword.gltf" id="2_7v2x3"]
 [ext_resource type="Script" path="res://scripts/Sword.gd" id="2_oq2ie"]
+[ext_resource type="PackedScene" uid="uid://dpgejo5b8aot5" path="res://assets/shiteyanyo_hatsune_miku/shiteyanyo.gltf" id="4_a6rxw"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fdvc3"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j66xm"]
-albedo_color = Color(1, 0, 0, 1)
-roughness = 0.8
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_lvxuv"]
-material = SubResource("StandardMaterial3D_j66xm")
+[sub_resource type="BoxShape3D" id="BoxShape3D_upfds"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ec38l"]
 size = Vector3(2, 0.2, 0.4)
@@ -21,10 +15,10 @@ collision_layer = 2
 script = ExtResource("1_ih8ru")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("CapsuleShape3D_fdvc3")
+shape = SubResource("BoxShape3D_upfds")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("CapsuleMesh_lvxuv")
+[node name="Shiteyanyo" parent="." instance=ExtResource("4_a6rxw")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, -0.5, 0)
 
 [node name="Sword" type="Node3D" parent="."]
 script = ExtResource("2_oq2ie")
