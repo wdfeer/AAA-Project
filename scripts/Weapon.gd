@@ -11,6 +11,7 @@ var attack_timer: float
 func _input(event):
 	if event.is_action_pressed("attack") and attack_timer > get_attack_cooldown():
 		attack()
+		attack_timer = 0
 
 func _physics_process(delta):
 	if (attack_timer <= get_attack_cooldown()):
