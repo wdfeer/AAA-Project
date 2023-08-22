@@ -2,6 +2,7 @@ extends Weapon
 
 @onready var player = $"../.."
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
+@onready var audio_player: AudioStreamPlayer3D = $Sound
 
 const attack_distance = 1000
 const dmg = 60
@@ -22,7 +23,11 @@ func attack():
 		print("DAMAGED")
 	
 	play_fire_animation()
+	play_fire_sound()
 
 func play_fire_animation():
 	anim_player.stop()
 	anim_player.play("FireNoLoad")
+
+func play_fire_sound():
+	audio_player.play()
