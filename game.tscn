@@ -1,9 +1,10 @@
-[gd_scene load_steps=23 format=3 uid="uid://7577ojhb4roh"]
+[gd_scene load_steps=24 format=3 uid="uid://7577ojhb4roh"]
 
 [ext_resource type="Script" path="res://scripts/Counter.gd" id="1_bnt8j"]
 [ext_resource type="Texture2D" uid="uid://bykbd4bs83pgc" path="res://addons/kenney_prototype_textures/orange/texture_01.png" id="2_x2qmg"]
 [ext_resource type="Script" path="res://scripts/FadingLabel.gd" id="3_mglq1"]
 [ext_resource type="Texture2D" uid="uid://cg7qlx1ir41sd" path="res://assets/circle.svg" id="4_8kkm6"]
+[ext_resource type="Script" path="res://scripts/WaveInfo.gd" id="4_csbjp"]
 [ext_resource type="Script" path="res://scripts/Player.gd" id="4_k58lj"]
 [ext_resource type="PackedScene" uid="uid://be7ja1bjje8xv" path="res://assets/sledgehammer_01_1k.gltf/sledgehammer_01_1k.gltf" id="4_kcp83"]
 [ext_resource type="Script" path="res://scripts/PlayerCamera.gd" id="5_6j7tt"]
@@ -122,6 +123,17 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 40
 text = "100"
 horizontal_alignment = 1
+
+[node name="WaveInfo" type="Label" parent="UI"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 126.0
+offset_bottom = 64.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Wave 1"
+script = ExtResource("4_csbjp")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_b8hfi")

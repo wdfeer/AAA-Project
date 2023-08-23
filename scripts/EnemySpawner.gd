@@ -1,3 +1,4 @@
+class_name EnemySpawner
 extends Node3D
 
 @export var enemy_scene: PackedScene
@@ -6,8 +7,14 @@ extends Node3D
 
 var spawnpoints: PackedVector3Array
 
-const SPAWN_COOLDOWN: float = 4 
-var spawn_timer: float = SPAWN_COOLDOWN
+const WAVE_INTERVAL: float = 15
+var wave_timer: float = 0
+var current_wave: int = 1
+var enemies_to_spawn: int = 4
+
+func get_spawn_cooldown():
+	return 2 / pow(current_wave, 0.6)
+var spawn_timer: float = 1
 
 func _ready():
 	var children = get_children()
@@ -18,10 +25,19 @@ func _ready():
 
 
 func _process(delta):
-	spawn_timer -= delta
-	if spawn_timer <= 0:
-		spawn_enemy()
-		spawn_timer = SPAWN_COOLDOWN
+	if wave_timer < WAVE_INTERVAL and enemies_to_spawn <= 0:
+		wave_timer += delta
+	elif wave_timer >= WAVE_INTERVAL:
+		current_wave += 1
+		enemies_to_spawn = current_wave * 4
+		wave_timer = 0
+	
+	if enemies_to_spawn > 0:
+		spawn_timer -= delta
+		if spawn_timer <= 0:
+			spawn_enemy()
+			spawn_timer = get_spawn_cooldown()
+			enemies_to_spawn -= 1
 
 func spawn_enemy():
 	var enemy = enemy_scene.instantiate() as Enemy
