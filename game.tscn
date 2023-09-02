@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://7577ojhb4roh"]
+[gd_scene load_steps=31 format=3 uid="uid://7577ojhb4roh"]
 
 [ext_resource type="Script" path="res://scripts/KillCounter.gd" id="1_b0w5i"]
 [ext_resource type="Texture2D" uid="uid://ceolwevbtxs1v" path="res://assets/crosshair.svg" id="2_lkc3v"]
@@ -15,6 +15,8 @@
 [ext_resource type="PackedScene" uid="uid://cue72tk1mnowl" path="res://enemy.tscn" id="7_aqj8v"]
 [ext_resource type="Script" path="res://scripts/Sledgehammer.gd" id="7_k5gsf"]
 [ext_resource type="PackedScene" uid="uid://dqsoqe73kqyxu" path="res://assets/colt_m1911/scene.gltf" id="8_7qpmv"]
+[ext_resource type="Texture2D" uid="uid://dq1l2frus8vso" path="res://assets/thin_bar_empty.png" id="8_87tr2"]
+[ext_resource type="Texture2D" uid="uid://dbfxb3ylvvb3l" path="res://assets/thin_bar_full.png" id="9_foepl"]
 [ext_resource type="Script" path="res://scripts/Colt.gd" id="9_h5ouu"]
 [ext_resource type="Script" path="res://scripts/PlayerStats.gd" id="9_k8vdy"]
 [ext_resource type="Script" path="res://scripts/EnemySpawner.gd" id="10_ei2e3"]
@@ -186,33 +188,31 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -276.0
-offset_top = -20.0
+offset_top = -24.0
 offset_right = 276.0
-offset_bottom = 20.0
+offset_bottom = -4.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(1, 0.6)
 max_value = 1.0
 step = 0.001
-texture_under = ExtResource("5_m5efu")
-texture_progress = ExtResource("6_5cpww")
+texture_under = ExtResource("8_87tr2")
+texture_progress = ExtResource("9_foepl")
 
 [node name="XpLabel" type="Label" parent="UI/XpHUD"]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = -1
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -34.5
-offset_top = -29.0
-offset_right = 34.5
-offset_bottom = 29.0
+offset_left = -34.0
+offset_top = -36.0
+offset_right = 35.0
+offset_bottom = 12.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0.784314, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 28
+theme_override_font_sizes/font_size = 30
 text = "0
 "
 horizontal_alignment = 1
