@@ -4,7 +4,7 @@ extends Node
 @onready var XpHUD: XpHUD = $"../../UI/XpHUD"
 
 func _ready():
-	$"../../EnemySpawner".connect("enemy_died", on_enemy_death)
+	$"../../EnemySpawner".connect("enemy_died", _on_enemy_death)
 
 
 var damage_mult: float = 1
@@ -21,6 +21,8 @@ func update_lvl():
 		xp_progress -= required
 		lvl += 1
 		required = get_xp_for_lvl(lvl + 1)
+		
+		level_up.emit()
 
 func get_xp_for_lvl(lvl: int):
 	return int(pow(1.5, lvl) + 6)
@@ -34,5 +36,8 @@ func add_xp(amount: int):
 	update_xp_display()
 
 
-func on_enemy_death():
+func _on_enemy_death():
 	add_xp(1)
+
+
+signal level_up
