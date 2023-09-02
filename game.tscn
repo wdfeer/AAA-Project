@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://7577ojhb4roh"]
+[gd_scene load_steps=27 format=3 uid="uid://7577ojhb4roh"]
 
 [ext_resource type="Script" path="res://scripts/Counter.gd" id="1_bnt8j"]
 [ext_resource type="Texture2D" uid="uid://bykbd4bs83pgc" path="res://addons/kenney_prototype_textures/orange/texture_01.png" id="2_x2qmg"]
@@ -7,7 +7,10 @@
 [ext_resource type="Script" path="res://scripts/WaveInfo.gd" id="4_csbjp"]
 [ext_resource type="Script" path="res://scripts/Player.gd" id="4_k58lj"]
 [ext_resource type="PackedScene" uid="uid://be7ja1bjje8xv" path="res://assets/sledgehammer_01_1k.gltf/sledgehammer_01_1k.gltf" id="4_kcp83"]
+[ext_resource type="Script" path="res://scripts/HpHUD.gd" id="4_ldi2l"]
 [ext_resource type="Script" path="res://scripts/PlayerCamera.gd" id="5_6j7tt"]
+[ext_resource type="Texture2D" uid="uid://c25165w7veoxw" path="res://assets/hp_bar_empty.png" id="5_xgfy8"]
+[ext_resource type="Texture2D" uid="uid://103b8b0j14pe" path="res://assets/hp_bar_full.png" id="6_1f0x5"]
 [ext_resource type="PackedScene" uid="uid://cue72tk1mnowl" path="res://enemy.tscn" id="7_aqj8v"]
 [ext_resource type="Script" path="res://scripts/Sledgehammer.gd" id="7_k5gsf"]
 [ext_resource type="PackedScene" uid="uid://dqsoqe73kqyxu" path="res://assets/colt_m1911/scene.gltf" id="8_7qpmv"]
@@ -112,13 +115,49 @@ theme_override_font_sizes/font_size = 32
 horizontal_alignment = 1
 script = ExtResource("3_mglq1")
 
-[node name="HpLabel" type="Label" parent="UI"]
-self_modulate = Color(1, 0.627451, 0.627451, 1)
-layout_mode = 0
-offset_left = 720.0
-offset_top = 768.0
-offset_right = 880.0
-offset_bottom = 826.0
+[node name="HpHUD" type="Control" parent="UI"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_top = -52.0
+offset_bottom = -52.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("4_ldi2l")
+
+[node name="HpBar" type="TextureProgressBar" parent="UI/HpHUD"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -276.0
+offset_top = -20.0
+offset_right = 276.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+value = 100.0
+texture_under = ExtResource("5_xgfy8")
+texture_progress = ExtResource("6_1f0x5")
+
+[node name="HpLabel" type="Label" parent="UI/HpHUD"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -34.5
+offset_top = -29.0
+offset_right = 34.5
+offset_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 40
 text = "100"

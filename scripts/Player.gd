@@ -36,13 +36,13 @@ func _physics_process(delta):
 	move_and_slide()
 
 
-@onready var hp_label: Label = $"../UI/HpLabel"
+@onready var hp_hud: HpHUD = $"../UI/HpHUD"
 
 var hp: float = 100;
 
 func damage(value: float):
 	hp -= value
-	hp_label.text = str(hp)
+	hp_hud.set_hp(int(hp))
 	if hp <= 0:
 		die()
 
