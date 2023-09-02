@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://7577ojhb4roh"]
+[gd_scene load_steps=28 format=3 uid="uid://7577ojhb4roh"]
 
 [ext_resource type="Script" path="res://scripts/Counter.gd" id="1_bnt8j"]
 [ext_resource type="Texture2D" uid="uid://bykbd4bs83pgc" path="res://addons/kenney_prototype_textures/orange/texture_01.png" id="2_x2qmg"]
@@ -15,6 +15,7 @@
 [ext_resource type="Script" path="res://scripts/Sledgehammer.gd" id="7_k5gsf"]
 [ext_resource type="PackedScene" uid="uid://dqsoqe73kqyxu" path="res://assets/colt_m1911/scene.gltf" id="8_7qpmv"]
 [ext_resource type="Script" path="res://scripts/Colt.gd" id="9_h5ouu"]
+[ext_resource type="Script" path="res://scripts/PlayerStats.gd" id="9_k8vdy"]
 [ext_resource type="Script" path="res://scripts/EnemySpawner.gd" id="10_ei2e3"]
 [ext_resource type="AudioStream" uid="uid://bhk1uc55wyul2" path="res://assets/colt.ogg" id="10_jyxxp"]
 
@@ -186,6 +187,9 @@ shadow_enabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 collision_mask = 2
 script = ExtResource("4_k58lj")
+
+[node name="PlayerStats" type="Node" parent="Player"]
+script = ExtResource("9_k8vdy")
 
 [node name="PlayerCamera" type="Camera3D" parent="Player"]
 transform = Transform3D(0.999971, 0.00760956, 0, -0.00760956, 0.999971, 0, 0, 0, 1, 0, 0.453843, 0)

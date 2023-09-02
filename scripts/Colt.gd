@@ -1,6 +1,5 @@
 extends Weapon
 
-@onready var player = $"../.."
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
 @onready var audio_player: AudioStreamPlayer3D = $Sound
 
