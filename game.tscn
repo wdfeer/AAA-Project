@@ -9,8 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://be7ja1bjje8xv" path="res://assets/sledgehammer_01_1k.gltf/sledgehammer_01_1k.gltf" id="4_kcp83"]
 [ext_resource type="Script" path="res://scripts/HpHUD.gd" id="4_ldi2l"]
 [ext_resource type="Script" path="res://scripts/PlayerCamera.gd" id="5_6j7tt"]
-[ext_resource type="Texture2D" uid="uid://c25165w7veoxw" path="res://assets/hp_bar_empty.png" id="5_xgfy8"]
-[ext_resource type="Texture2D" uid="uid://103b8b0j14pe" path="res://assets/hp_bar_full.png" id="6_1f0x5"]
+[ext_resource type="Texture2D" uid="uid://c25165w7veoxw" path="res://assets/bar_empty.png" id="5_m5efu"]
+[ext_resource type="Texture2D" uid="uid://103b8b0j14pe" path="res://assets/bar_full.png" id="6_5cpww"]
 [ext_resource type="PackedScene" uid="uid://cue72tk1mnowl" path="res://enemy.tscn" id="7_aqj8v"]
 [ext_resource type="Script" path="res://scripts/Sledgehammer.gd" id="7_k5gsf"]
 [ext_resource type="PackedScene" uid="uid://dqsoqe73kqyxu" path="res://assets/colt_m1911/scene.gltf" id="8_7qpmv"]
@@ -129,6 +129,7 @@ grow_vertical = 0
 script = ExtResource("4_ldi2l")
 
 [node name="HpBar" type="TextureProgressBar" parent="UI/HpHUD"]
+self_modulate = Color(1, 0, 0, 1)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -142,8 +143,8 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 value = 100.0
-texture_under = ExtResource("5_xgfy8")
-texture_progress = ExtResource("6_1f0x5")
+texture_under = ExtResource("5_m5efu")
+texture_progress = ExtResource("6_5cpww")
 
 [node name="HpLabel" type="Label" parent="UI/HpHUD"]
 layout_mode = 1
