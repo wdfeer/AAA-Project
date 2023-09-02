@@ -22,6 +22,7 @@ func update_lvl():
 		lvl += 1
 		required = get_xp_for_lvl(lvl + 1)
 		
+		skill_points += 1
 		level_up.emit()
 
 func get_xp_for_lvl(lvl: int):
@@ -36,8 +37,18 @@ func add_xp(amount: int):
 	update_xp_display()
 
 
+var skill_points: int = 0
+
+func deduct_skill_points(amount: int = 1):
+	if skill_points >= amount:
+		skill_points -= amount
+		skill_point_used.emit()
+
+
 func _on_enemy_death():
 	add_xp(1)
 
 
 signal level_up
+
+signal skill_point_used

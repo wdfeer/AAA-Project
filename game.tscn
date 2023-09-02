@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://7577ojhb4roh"]
+[gd_scene load_steps=34 format=3 uid="uid://7577ojhb4roh"]
 
 [ext_resource type="Script" path="res://scripts/KillCounter.gd" id="1_b0w5i"]
 [ext_resource type="Texture2D" uid="uid://ceolwevbtxs1v" path="res://assets/crosshair.svg" id="2_lkc3v"]
@@ -21,8 +21,11 @@
 [ext_resource type="Script" path="res://scripts/PlayerStats.gd" id="9_k8vdy"]
 [ext_resource type="Script" path="res://scripts/EnemySpawner.gd" id="10_ei2e3"]
 [ext_resource type="AudioStream" uid="uid://bhk1uc55wyul2" path="res://assets/colt.ogg" id="10_jyxxp"]
-[ext_resource type="Script" path="res://scripts/SkillPanel.gd" id="11_1qy5x"]
-[ext_resource type="Texture2D" uid="uid://cg7qlx1ir41sd" path="res://assets/circle.svg" id="11_ce4ew"]
+[ext_resource type="Script" path="res://scripts/Skills/SkillPanel.gd" id="11_22g50"]
+[ext_resource type="Script" path="res://scripts/Skills/DamageSkill.gd" id="12_0xy6w"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_172k2"]
+bg_color = Color(0.235294, 0.235294, 0.235294, 1)
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_iarg5"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -231,56 +234,58 @@ text = "Wave 1"
 script = ExtResource("4_csbjp")
 
 [node name="SkillPanel" type="PanelContainer" parent="UI"]
+process_mode = 2
+visible = false
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.95
+anchor_bottom = 0.95
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("11_1qy5x")
+theme_override_styles/panel = SubResource("StyleBoxFlat_172k2")
+script = ExtResource("11_22g50")
+metadata/_edit_use_anchors_ = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="UI/SkillPanel"]
+[node name="TabContainer" type="TabContainer" parent="UI/SkillPanel"]
 layout_mode = 2
 
-[node name="ScrollContainer" type="ScrollContainer" parent="UI/SkillPanel/HBoxContainer"]
-custom_minimum_size = Vector2(64, 0)
+[node name="Offense" type="Panel" parent="UI/SkillPanel/TabContainer"]
 layout_mode = 2
-size_flags_horizontal = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/SkillPanel/HBoxContainer/ScrollContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
+[node name="Damage" type="Button" parent="UI/SkillPanel/TabContainer/Offense"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.5
+offset_top = -20.0
+offset_right = 26.5
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+tooltip_text = "+5% Overall Damage per Level"
+text = "DMG
+LVL 0
++0%"
+script = ExtResource("12_0xy6w")
 
-[node name="TextureButton" type="TextureButton" parent="UI/SkillPanel/HBoxContainer/ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(64, 64)
+[node name="Defense" type="Panel" parent="UI/SkillPanel/TabContainer"]
+visible = false
 layout_mode = 2
-texture_normal = ExtResource("11_ce4ew")
-ignore_texture_size = true
-stretch_mode = 5
 
-[node name="TextureButton2" type="TextureButton" parent="UI/SkillPanel/HBoxContainer/ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(64, 64)
+[node name="Movement" type="Panel" parent="UI/SkillPanel/TabContainer"]
+visible = false
 layout_mode = 2
-texture_normal = ExtResource("11_ce4ew")
-ignore_texture_size = true
-stretch_mode = 5
 
-[node name="TextureButton3" type="TextureButton" parent="UI/SkillPanel/HBoxContainer/ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(64, 64)
+[node name="SPCounter" type="Label" parent="UI/SkillPanel"]
 layout_mode = 2
-texture_normal = ExtResource("11_ce4ew")
-ignore_texture_size = true
-stretch_mode = 5
-
-[node name="TextureButton4" type="TextureButton" parent="UI/SkillPanel/HBoxContainer/ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(64, 64)
-layout_mode = 2
-texture_normal = ExtResource("11_ce4ew")
-ignore_texture_size = true
-stretch_mode = 5
-
-[node name="Panel" type="Panel" parent="UI/SkillPanel/HBoxContainer"]
-layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+text = "Skill Points: 1"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_b8hfi")
