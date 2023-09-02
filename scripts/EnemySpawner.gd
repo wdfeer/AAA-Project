@@ -45,3 +45,5 @@ func spawn_enemy():
 	
 	var position = spawnpoints[rng.randi_range(0, len(spawnpoints) - 1)]
 	enemy.global_position = position
+
+signal enemy_died

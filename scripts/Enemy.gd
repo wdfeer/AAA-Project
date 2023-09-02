@@ -10,8 +10,8 @@ const SWORD_ROTATION_SPEED = 3.0
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
+@onready var spawner: EnemySpawner = $".."
 @onready var player: CharacterBody3D = $"../../Player"
-@onready var kill_counter: Counter = $"../../UI/KillCounter"
 @onready var sword: Node3D = $Sword
 @onready var anim_player: AnimationPlayer = $Shiteyanyo/AnimationPlayer
 
@@ -43,8 +43,6 @@ func jump():
 
 var hp: float = 100;
 func damage(value: float):
-	print_debug("Enemy damaged by " + str(value))
-	
 	hp -= value
 	if hp <= 0:
 		die()
@@ -52,4 +50,4 @@ func damage(value: float):
 func die():
 	queue_free()
 	
-	kill_counter.add()
+	spawner.enemy_died.emit()

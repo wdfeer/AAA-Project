@@ -19,7 +19,6 @@ func attack():
 	var result = space_state.intersect_ray(query)
 	if result and result.collider is Enemy:
 		damage(result.collider, dmg)
-		print("DAMAGED")
 	
 	play_fire_animation()
 	play_fire_sound()

@@ -1,6 +1,6 @@
-[gd_scene load_steps=28 format=3 uid="uid://7577ojhb4roh"]
+[gd_scene load_steps=29 format=3 uid="uid://7577ojhb4roh"]
 
-[ext_resource type="Script" path="res://scripts/Counter.gd" id="1_bnt8j"]
+[ext_resource type="Script" path="res://scripts/KillCounter.gd" id="1_b0w5i"]
 [ext_resource type="Texture2D" uid="uid://bykbd4bs83pgc" path="res://addons/kenney_prototype_textures/orange/texture_01.png" id="2_x2qmg"]
 [ext_resource type="Script" path="res://scripts/FadingLabel.gd" id="3_mglq1"]
 [ext_resource type="Texture2D" uid="uid://cg7qlx1ir41sd" path="res://assets/circle.svg" id="4_8kkm6"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://scripts/PlayerCamera.gd" id="5_6j7tt"]
 [ext_resource type="Texture2D" uid="uid://c25165w7veoxw" path="res://assets/bar_empty.png" id="5_m5efu"]
 [ext_resource type="Texture2D" uid="uid://103b8b0j14pe" path="res://assets/bar_full.png" id="6_5cpww"]
+[ext_resource type="Script" path="res://scripts/XpHUD.gd" id="7_2iy4v"]
 [ext_resource type="PackedScene" uid="uid://cue72tk1mnowl" path="res://enemy.tscn" id="7_aqj8v"]
 [ext_resource type="Script" path="res://scripts/Sledgehammer.gd" id="7_k5gsf"]
 [ext_resource type="PackedScene" uid="uid://dqsoqe73kqyxu" path="res://assets/colt_m1911/scene.gltf" id="8_7qpmv"]
@@ -77,7 +78,7 @@ grow_vertical = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 32
 horizontal_alignment = 1
-script = ExtResource("1_bnt8j")
+script = ExtResource("1_b0w5i")
 
 [node name="Crosshair" type="TextureRect" parent="UI"]
 modulate = Color(0, 1, 0, 1)
@@ -163,6 +164,58 @@ grow_vertical = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 40
 text = "100"
+horizontal_alignment = 1
+
+[node name="XpHUD" type="Control" parent="UI"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_top = -92.0
+offset_bottom = -92.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("7_2iy4v")
+
+[node name="XpBar" type="TextureProgressBar" parent="UI/XpHUD"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -276.0
+offset_top = -20.0
+offset_right = 276.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1, 0.6)
+max_value = 1.0
+step = 0.001
+texture_under = ExtResource("5_m5efu")
+texture_progress = ExtResource("6_5cpww")
+
+[node name="XpLabel" type="Label" parent="UI/XpHUD"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -34.5
+offset_top = -29.0
+offset_right = 34.5
+offset_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0.784314, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 28
+text = "0
+"
 horizontal_alignment = 1
 
 [node name="WaveInfo" type="Label" parent="UI"]

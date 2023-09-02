@@ -1,5 +1,7 @@
-class_name Counter
 extends Label
+
+func _ready():
+	$"../../EnemySpawner".connect("enemy_died", add)
 
 var count: int = 0
 
