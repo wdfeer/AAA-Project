@@ -39,18 +39,23 @@ func deduct_skill_points(amount: int = 1):
 		skill_points -= amount
 		skill_point_used.emit()
 
+@onready var hp_hud: HpHUD = $"../../UI/HpHUD"
+
+var max_hp: float = 100
 
 var damage_mult: float = 1
 
 var damage_taken_mult: float = 1
 
 func reset_skills():
+	max_hp = 100
 	damage_mult = 1
 	damage_taken_mult = 1
 
 func _physics_process(delta):
 	reset_skills()
 	update_skills.emit()
+	post_update_skills.emit()
 
 
 func _on_enemy_death():
@@ -62,3 +67,5 @@ signal level_up
 signal skill_point_used
 
 signal update_skills
+
+signal post_update_skills

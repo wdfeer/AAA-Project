@@ -1,6 +1,7 @@
 class_name Player
 extends CharacterBody3D
 
+@onready var stats: PlayerStats = $PlayerStats
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
@@ -41,7 +42,7 @@ func _physics_process(delta):
 var hp: float = 100;
 
 func damage(value: float):
-	hp -= value
+	hp -= value * stats.damage_taken_mult
 	hp_hud.set_hp(int(hp))
 	if hp <= 0:
 		die()
