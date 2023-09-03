@@ -1,0 +1,63 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://ck0b256cue6x0"
+path="res://.godot/imported/map.gltf-5cc94bb890190db21c20aed1d661b887.scn"
+
+[deps]
+
+source_file="res://assets/map.gltf"
+dest_files=["res://.godot/imported/map.gltf-5cc94bb890190db21c20aed1d661b887.scn"]
+
+[params]
+
+nodes/root_type="Node3D"
+nodes/root_name="Scene Root"
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+import_script/path=""
+_subresources={
+"nodes": {
+"PATH:Node2/Node32/Mesh2": {
+"generate/physics": true
+},
+"PATH:Node2/Node32/Mesh32": {
+"generate/physics": true
+},
+"PATH:Node2/Node32/Mesh42": {
+"generate/physics": true
+},
+"PATH:Node2/Node32/Mesh52": {
+"generate/physics": true
+},
+"PATH:Node2/Node42/Mesh62": {
+"generate/physics": true,
+"physics/shape_type": 2
+},
+"PATH:Node2/Node42/Mesh72": {
+"generate/physics": true,
+"physics/shape_type": 2
+},
+"PATH:Node2/Node42/Mesh82": {
+"generate/physics": true,
+"physics/shape_type": 2
+},
+"PATH:Node2/Node42/Mesh92": {
+"generate/physics": true,
+"physics/shape_type": 2
+}
+}
+}
+gltf/embedded_image_handling=1

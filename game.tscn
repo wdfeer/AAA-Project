@@ -1,8 +1,7 @@
-[gd_scene load_steps=35 format=3 uid="uid://7577ojhb4roh"]
+[gd_scene load_steps=32 format=3 uid="uid://7577ojhb4roh"]
 
 [ext_resource type="Script" path="res://scripts/KillCounter.gd" id="1_b0w5i"]
 [ext_resource type="Texture2D" uid="uid://ceolwevbtxs1v" path="res://assets/crosshair.svg" id="2_lkc3v"]
-[ext_resource type="Texture2D" uid="uid://bykbd4bs83pgc" path="res://addons/kenney_prototype_textures/orange/texture_01.png" id="2_x2qmg"]
 [ext_resource type="Script" path="res://scripts/FadingLabel.gd" id="3_mglq1"]
 [ext_resource type="Script" path="res://scripts/WaveInfo.gd" id="4_csbjp"]
 [ext_resource type="Script" path="res://scripts/Player.gd" id="4_k58lj"]
@@ -24,6 +23,7 @@
 [ext_resource type="Script" path="res://scripts/Skills/SkillPanel.gd" id="11_22g50"]
 [ext_resource type="Script" path="res://scripts/Skills/DamageSkill.gd" id="12_0xy6w"]
 [ext_resource type="Script" path="res://scripts/Skills/MaxHpSkill.gd" id="13_lw4pc"]
+[ext_resource type="PackedScene" uid="uid://rdihksl83wam" path="res://map.tscn" id="24_0ea0f"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_172k2"]
 bg_color = Color(0.235294, 0.235294, 0.235294, 1)
@@ -47,17 +47,6 @@ size = Vector3(0.25, 0.1, 1)
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fdvc3"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_60cav"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_dxse6"]
-size = Vector3(100, 0, 100)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tfohm"]
-albedo_texture = ExtResource("2_x2qmg")
-uv1_scale = Vector3(100, 100, 100)
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_is7fy"]
-material = SubResource("StandardMaterial3D_tfohm")
-size = Vector2(100, 100)
 
 [node name="Game" type="Node3D"]
 
@@ -253,7 +242,6 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 2
 
 [node name="Offense" type="Panel" parent="UI/SkillPanel/TabContainer"]
-visible = false
 layout_mode = 2
 
 [node name="Damage" type="Button" parent="UI/SkillPanel/TabContainer/Offense"]
@@ -269,6 +257,7 @@ LVL 0
 script = ExtResource("12_0xy6w")
 
 [node name="Defense" type="Panel" parent="UI/SkillPanel/TabContainer"]
+visible = false
 layout_mode = 2
 
 [node name="MaxHp" type="Button" parent="UI/SkillPanel/TabContainer/Defense"]
@@ -301,7 +290,7 @@ transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75
 shadow_enabled = true
 
 [node name="Player" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.41131, 9.53358)
 collision_mask = 2
 script = ExtResource("4_k58lj")
 
@@ -340,31 +329,14 @@ shape = SubResource("CapsuleShape3D_fdvc3")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Player"]
 mesh = SubResource("CapsuleMesh_60cav")
 
-[node name="Floor" type="StaticBody3D" parent="."]
-collision_layer = 3
-collision_mask = 0
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
-shape = SubResource("BoxShape3D_dxse6")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
-mesh = SubResource("PlaneMesh_is7fy")
-
 [node name="EnemySpawner" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 script = ExtResource("10_ei2e3")
 enemy_scene = ExtResource("7_aqj8v")
 
 [node name="spawnpoint1" type="Node3D" parent="EnemySpawner"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 0, 40)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0)
 
-[node name="spawnpoint2" type="Node3D" parent="EnemySpawner"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 0, -40)
-
-[node name="spawnpoint3" type="Node3D" parent="EnemySpawner"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 0, 40)
-
-[node name="spawnpoint4" type="Node3D" parent="EnemySpawner"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 0, -40)
+[node name="map" parent="." instance=ExtResource("24_0ea0f")]
 
 [connection signal="body_entered" from="Player/PlayerCamera/Sledgehammer/Area3D" to="Player/PlayerCamera/Sledgehammer" method="_on_body_entered"]
