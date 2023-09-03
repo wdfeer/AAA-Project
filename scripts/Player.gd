@@ -12,7 +12,7 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 func _physics_process(delta):
 	if global_position.y < -3:
-		get_tree().change_scene_to_file("res://game.tscn")
+		die()
 		return
 	
 	# Add the gravity.
@@ -26,12 +26,12 @@ func _physics_process(delta):
 	# Get the input direction and handle the movement/deceleration.
 	var input_dir = Input.get_vector("left", "right", "up", "down")
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized().rotated(Vector3.UP, camera.rotation.y)
-	if direction:
+	if direction and is_on_floor():
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		velocity.z = move_toward(velocity.z, 0, SPEED)
+	elif is_on_floor():
+		velocity.x = move_toward(velocity.x, 0, SPEED / 5)
+		velocity.z = move_toward(velocity.z, 0, SPEED / 5)
 	
 	move_and_slide()
 
