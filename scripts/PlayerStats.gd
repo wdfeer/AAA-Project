@@ -7,11 +7,6 @@ func _ready():
 	$"../../EnemySpawner".connect("enemy_died", _on_enemy_death)
 
 
-var damage_mult: float = 1
-
-var damage_taken_mult: float = 1
-
-
 var xp_progress: int = 0
 var lvl: int = 0
 
@@ -45,6 +40,19 @@ func deduct_skill_points(amount: int = 1):
 		skill_point_used.emit()
 
 
+var damage_mult: float = 1
+
+var damage_taken_mult: float = 1
+
+func reset_skills():
+	damage_mult = 1
+	damage_taken_mult = 1
+
+func _physics_process(delta):
+	reset_skills()
+	update_skills.emit()
+
+
 func _on_enemy_death():
 	add_xp(1)
 
@@ -52,3 +60,5 @@ func _on_enemy_death():
 signal level_up
 
 signal skill_point_used
+
+signal update_skills
