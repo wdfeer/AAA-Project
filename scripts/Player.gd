@@ -28,8 +28,8 @@ func _physics_process(delta):
 	var input_dir = Input.get_vector("left", "right", "up", "down")
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized().rotated(Vector3.UP, camera.rotation.y)
 	if direction and is_on_floor():
-		velocity.x = direction.x * SPEED
-		velocity.z = direction.z * SPEED
+		velocity.x = direction.x * SPEED * 0.6 + velocity.x * 0.4
+		velocity.z = direction.z * SPEED * 0.6 + velocity.z * 0.4
 	elif is_on_floor():
 		velocity.x = move_toward(velocity.x, 0, SPEED / 5)
 		velocity.z = move_toward(velocity.z, 0, SPEED / 5)
