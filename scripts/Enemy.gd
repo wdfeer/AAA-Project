@@ -41,9 +41,12 @@ func jump():
 	velocity.y = JUMP_VELOCITY
 
 
-var hp: float = 100;
+@onready var hp_label: Label3D = $HpLabel
+var hp: float = 100
+
 func damage(value: float):
 	hp -= value
+	hp_label.text = str(hp)
 	if hp <= 0:
 		die()
 
