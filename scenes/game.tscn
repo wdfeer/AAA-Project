@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://c25165w7veoxw" path="res://assets/bar_empty.png" id="5_m5efu"]
 [ext_resource type="Texture2D" uid="uid://103b8b0j14pe" path="res://assets/bar_full.png" id="6_5cpww"]
 [ext_resource type="Script" path="res://scripts/XpHUD.gd" id="7_2iy4v"]
-[ext_resource type="PackedScene" uid="uid://cue72tk1mnowl" path="res://enemy.tscn" id="7_aqj8v"]
+[ext_resource type="PackedScene" uid="uid://cue72tk1mnowl" path="res://scenes/enemy.tscn" id="7_aqj8v"]
 [ext_resource type="Script" path="res://scripts/Sledgehammer.gd" id="7_k5gsf"]
 [ext_resource type="PackedScene" uid="uid://dqsoqe73kqyxu" path="res://assets/colt_m1911/scene.gltf" id="8_7qpmv"]
 [ext_resource type="Texture2D" uid="uid://dq1l2frus8vso" path="res://assets/thin_bar_empty.png" id="8_87tr2"]
@@ -23,7 +23,7 @@
 [ext_resource type="Script" path="res://scripts/Skills/SkillPanel.gd" id="11_22g50"]
 [ext_resource type="Script" path="res://scripts/Skills/DamageSkill.gd" id="12_0xy6w"]
 [ext_resource type="Script" path="res://scripts/Skills/MaxHpSkill.gd" id="13_lw4pc"]
-[ext_resource type="PackedScene" uid="uid://rdihksl83wam" path="res://map.tscn" id="24_0ea0f"]
+[ext_resource type="PackedScene" uid="uid://rdihksl83wam" path="res://scenes/map.tscn" id="24_0ea0f"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_172k2"]
 bg_color = Color(0.235294, 0.235294, 0.235294, 1)
