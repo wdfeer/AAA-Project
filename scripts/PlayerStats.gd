@@ -21,7 +21,7 @@ func update_lvl():
 		level_up.emit()
 
 func get_xp_for_lvl(lvl: int):
-	return int(pow(1.5, lvl) + 6)
+	return int(pow(1.5, lvl) + 2)
 
 func update_xp_display():
 	update_lvl()
