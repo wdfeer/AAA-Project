@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://cue72tk1mnowl"]
+[gd_scene load_steps=8 format=3 uid="uid://cue72tk1mnowl"]
 
 [ext_resource type="Script" path="res://scripts/Enemy.gd" id="1_ih8ru"]
+[ext_resource type="PackedScene" uid="uid://2fumbwidxsb1" path="res://scenes/hp_orb.tscn" id="2_1pcd6"]
 [ext_resource type="PackedScene" uid="uid://bl1bjmh3w0mv0" path="res://assets/sword/sword.gltf" id="2_7v2x3"]
 [ext_resource type="Script" path="res://scripts/Sword.gd" id="2_oq2ie"]
 [ext_resource type="PackedScene" uid="uid://dpgejo5b8aot5" path="res://assets/shiteyanyo_hatsune_miku/shiteyanyo.gltf" id="4_a6rxw"]
@@ -13,6 +14,7 @@ size = Vector3(2, 0.2, 0.4)
 [node name="Enemy" type="CharacterBody3D"]
 collision_layer = 2
 script = ExtResource("1_ih8ru")
+hp_orb_scene = ExtResource("2_1pcd6")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_upfds")

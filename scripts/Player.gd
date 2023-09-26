@@ -47,5 +47,14 @@ func damage(value: float):
 	if hp <= 0:
 		die()
 
+func heal(value: float):
+	var new_hp = hp + value
+	if new_hp > stats.max_hp:
+		hp = stats.max_hp
+	else:
+		hp = new_hp
+	
+	hp_hud.set_hp(int(hp))
+
 func die():
 	get_tree().change_scene_to_file("res://game.tscn")	

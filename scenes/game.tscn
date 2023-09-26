@@ -291,7 +291,7 @@ shadow_enabled = true
 
 [node name="Player" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.41131, 9.53358)
-collision_mask = 2
+collision_mask = 6
 script = ExtResource("4_k58lj")
 
 [node name="PlayerStats" type="Node" parent="Player"]
