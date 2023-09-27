@@ -1,5 +1,5 @@
-class_name Enemy
-extends CharacterBody3D
+class_name Shiteyanyo
+extends EnemyBase
 
 
 const SPEED = 3.0
@@ -10,8 +10,6 @@ const SWORD_ROTATION_SPEED = 3.0
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
-@onready var spawner: EnemySpawner = $".."
-@onready var player: CharacterBody3D = $"../../Player"
 @onready var sword: Node3D = $Shiteyanyo/Sword
 @onready var sword_animation: AnimationPlayer = $Shiteyanyo/SwordAnimation
 @onready var anim_player: AnimationPlayer = $Shiteyanyo/AnimationPlayer
@@ -41,26 +39,3 @@ func enemy_ai(delta):
 
 func jump():
 	velocity.y = JUMP_VELOCITY
-
-
-@onready var hp_label: Label3D = $HpLabel
-var hp: float = 100
-
-func damage(value: float):
-	hp -= value
-	hp_label.text = str(hp)
-	if hp <= 0:
-		die()
-
-const HP_DROP_CHANCE: float = 0.4
-@export var hp_orb_scene: PackedScene
-
-func die():
-	queue_free()
-	
-	if randf() < HP_DROP_CHANCE:
-		var hp_orb: Node3D = hp_orb_scene.instantiate()
-		spawner.add_child(hp_orb)
-		hp_orb.global_position = global_position
-	
-	spawner.enemy_died.emit()

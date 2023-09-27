@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://btbag01g5y0mq"]
+
+[ext_resource type="Script" path="res://scripts/EnemyBase.gd" id="1_ivung"]
+[ext_resource type="PackedScene" uid="uid://2fumbwidxsb1" path="res://scenes/HpOrb.tscn" id="2_3nicq"]
+
+[node name="EnemyBase" type="CharacterBody3D"]
+collision_layer = 2
+script = ExtResource("1_ivung")
+hp_orb_scene = ExtResource("2_3nicq")
+
+[node name="HpLabel" type="Label3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.7, 0)
+text = "100"

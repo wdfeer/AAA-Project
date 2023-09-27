@@ -1,14 +1,14 @@
-[gd_scene load_steps=11 format=3 uid="uid://cue72tk1mnowl"]
+[gd_scene load_steps=11 format=3 uid="uid://eyx5u2pixgul"]
 
-[ext_resource type="Script" path="res://scripts/Enemy.gd" id="1_ih8ru"]
-[ext_resource type="PackedScene" uid="uid://2fumbwidxsb1" path="res://scenes/HpOrb.tscn" id="2_1yy5b"]
+[ext_resource type="PackedScene" uid="uid://btbag01g5y0mq" path="res://scenes/EnemyBase.tscn" id="1_y1ss4"]
+[ext_resource type="Script" path="res://scripts/Shiteyanyo.gd" id="2_2m4eb"]
 [ext_resource type="PackedScene" uid="uid://bl1bjmh3w0mv0" path="res://assets/sword/sword.gltf" id="2_7v2x3"]
 [ext_resource type="Script" path="res://scripts/Sword.gd" id="2_oq2ie"]
 [ext_resource type="PackedScene" uid="uid://dpgejo5b8aot5" path="res://assets/shiteyanyo_hatsune_miku/shiteyanyo.gltf" id="4_a6rxw"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_upfds"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_o3n8p"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_ec38l"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_gay6w"]
 size = Vector3(2, 0.2, 0.4)
 
 [sub_resource type="Animation" id="Animation_t6ygk"]
@@ -49,39 +49,33 @@ _data = {
 "Sword Rotate": SubResource("Animation_t6ygk")
 }
 
-[node name="Enemy" type="CharacterBody3D"]
-collision_layer = 2
-script = ExtResource("1_ih8ru")
-hp_orb_scene = ExtResource("2_1yy5b")
+[node name="Shiteyanyo" instance=ExtResource("1_y1ss4")]
+script = ExtResource("2_2m4eb")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("BoxShape3D_upfds")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="0"]
+shape = SubResource("BoxShape3D_o3n8p")
 
-[node name="Shiteyanyo" parent="." instance=ExtResource("4_a6rxw")]
+[node name="Shiteyanyo" parent="." index="1" instance=ExtResource("4_a6rxw")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, -0.5, 0)
 
-[node name="Sword" type="Node3D" parent="Shiteyanyo"]
+[node name="Sword" type="Node3D" parent="Shiteyanyo" index="2"]
 transform = Transform3D(7.54979e-08, 0, -1, 0, 1, 0, 1, 0, 7.54979e-08, 0, 0.5, 0)
 script = ExtResource("2_oq2ie")
 
-[node name="SwordModel" parent="Shiteyanyo/Sword" instance=ExtResource("2_7v2x3")]
+[node name="SwordModel" parent="Shiteyanyo/Sword" index="0" instance=ExtResource("2_7v2x3")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.5, 0, 0)
 
-[node name="Area3D" type="Area3D" parent="Shiteyanyo/Sword/SwordModel"]
+[node name="Area3D" type="Area3D" parent="Shiteyanyo/Sword/SwordModel" index="1"]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
 collision_layer = 0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Shiteyanyo/Sword/SwordModel/Area3D"]
-shape = SubResource("BoxShape3D_ec38l")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Shiteyanyo/Sword/SwordModel/Area3D" index="0"]
+shape = SubResource("BoxShape3D_gay6w")
 
-[node name="SwordAnimation" type="AnimationPlayer" parent="Shiteyanyo"]
+[node name="SwordAnimation" type="AnimationPlayer" parent="Shiteyanyo" index="3"]
 root_node = NodePath("../..")
 libraries = {
 "": SubResource("AnimationLibrary_ywr20")
 }
-
-[node name="HpLabel" type="Label3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.7, 0)
-text = "100"
 
 [connection signal="body_entered" from="Shiteyanyo/Sword/SwordModel/Area3D" to="Shiteyanyo/Sword" method="_on_body_entered"]

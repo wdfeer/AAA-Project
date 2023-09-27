@@ -42,7 +42,7 @@ func get_enemy_count(wave: int):
 	return 1 + int((wave - 1) / 3.0)
 
 func spawn_enemy():
-	var enemy = enemy_scene.instantiate() as Enemy
+	var enemy: EnemyBase = enemy_scene.instantiate()
 	add_child(enemy)
 	
 	var position = spawnpoints[rng.randi_range(0, len(spawnpoints) - 1)]

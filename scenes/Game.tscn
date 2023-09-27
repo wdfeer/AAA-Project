@@ -22,7 +22,7 @@
 [ext_resource type="Script" path="res://scripts/Colt.gd" id="20_kbjgj"]
 [ext_resource type="AudioStream" uid="uid://bhk1uc55wyul2" path="res://assets/colt.ogg" id="21_iuvff"]
 [ext_resource type="Script" path="res://scripts/EnemySpawner.gd" id="22_di2is"]
-[ext_resource type="PackedScene" uid="uid://cue72tk1mnowl" path="res://scenes/Enemy.tscn" id="23_wtc05"]
+[ext_resource type="PackedScene" uid="uid://eyx5u2pixgul" path="res://scenes/Shiteyanyo.tscn" id="23_vpo1p"]
 [ext_resource type="PackedScene" uid="uid://rdihksl83wam" path="res://scenes/Map.tscn" id="24_qfglw"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_172k2"]
@@ -332,7 +332,7 @@ mesh = SubResource("CapsuleMesh_60cav")
 [node name="EnemySpawner" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 script = ExtResource("22_di2is")
-enemy_scene = ExtResource("23_wtc05")
+enemy_scene = ExtResource("23_vpo1p")
 
 [node name="spawnpoint1" type="Node3D" parent="EnemySpawner"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0)

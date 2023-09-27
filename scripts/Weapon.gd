@@ -23,7 +23,7 @@ func _physics_process(delta):
 func attack():
 	push_error("attack Method not Implemented")
 
-func damage(enemy: Enemy, base_amount: float):
+func damage(enemy: EnemyBase, base_amount: float):
 	var amount: float = base_amount * player_stats.damage_mult
 	damage_label.show_text("%0.1f" % amount) 
 	enemy.damage(amount)

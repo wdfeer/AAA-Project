@@ -17,7 +17,7 @@ func attack():
 	
 	var query = PhysicsRayQueryParameters3D.create(origin, destination, player.collision_mask)
 	var result = space_state.intersect_ray(query)
-	if result and result.collider is Enemy:
+	if result and result.collider is EnemyBase:
 		damage(result.collider, dmg)
 	
 	play_fire_animation()
