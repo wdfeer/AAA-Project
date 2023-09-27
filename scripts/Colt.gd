@@ -1,5 +1,6 @@
 extends Weapon
 
+@onready var effect_player: AnimationPlayer = $EffectPlayer
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
 @onready var audio_player: AudioStreamPlayer3D = $Sound
 
@@ -20,12 +21,4 @@ func attack():
 	if result and result.collider is EnemyBase:
 		damage(result.collider, DMG)
 	
-	play_fire_animation()
-	play_fire_sound()
-
-func play_fire_animation():
-	anim_player.stop()
-	anim_player.play("FireNoLoad")
-
-func play_fire_sound():
-	audio_player.play()
+	effect_player.play("ShootEffects")
