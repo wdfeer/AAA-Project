@@ -26,8 +26,8 @@ func _physics_process(delta):
 	
 	move_and_slide()
 
-func enemy_ai(delta):	
-	var velocity: Vector3 = global_position.direction_to(player.global_position).normalized() * SPEED
+func enemy_ai(delta):
+	var velocity: Vector3 = global_position.direction_to(player.global_position) * SPEED
 	
 	self.velocity.x = velocity.x
 	self.velocity.z = velocity.z

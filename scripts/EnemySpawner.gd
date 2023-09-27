@@ -1,7 +1,7 @@
 class_name EnemySpawner
 extends Node3D
 
-@export var enemy_scene: PackedScene
+@export var enemy_scenes: Array
 
 @onready var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 
@@ -42,7 +42,7 @@ func get_enemy_count(wave: int):
 	return 1 + int((wave - 1) / 3.0)
 
 func spawn_enemy():
-	var enemy: EnemyBase = enemy_scene.instantiate()
+	var enemy: EnemyBase = enemy_scenes.pick_random().instantiate()
 	add_child(enemy)
 	
 	var position = spawnpoints[rng.randi_range(0, len(spawnpoints) - 1)]
