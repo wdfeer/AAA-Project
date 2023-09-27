@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://7577ojhb4roh"]
+[gd_scene load_steps=23 format=3 uid="uid://7577ojhb4roh"]
 
 [ext_resource type="Script" path="res://scripts/KillCounter.gd" id="1_3q7ul"]
 [ext_resource type="Texture2D" uid="uid://ceolwevbtxs1v" path="res://assets/crosshair.svg" id="2_hfkky"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" path="res://scripts/Skills/DamageSkill.gd" id="12_5wmp4"]
 [ext_resource type="Script" path="res://scripts/Skills/MaxHpSkill.gd" id="13_ojypw"]
 [ext_resource type="PackedScene" uid="uid://csebtmqdqdua1" path="res://scenes/Player.tscn" id="14_5x4e5"]
+[ext_resource type="PackedScene" uid="uid://eyx5u2pixgul" path="res://scenes/Shiteyanyo.tscn" id="17_ie47u"]
 [ext_resource type="PackedScene" uid="uid://ddg4hfiawrh0w" path="res://scenes/Eye.tscn" id="18_rcyc4"]
 [ext_resource type="Script" path="res://scripts/EnemySpawner.gd" id="22_di2is"]
 [ext_resource type="PackedScene" uid="uid://rdihksl83wam" path="res://scenes/Map.tscn" id="24_qfglw"]
@@ -281,7 +282,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4, 13)
 [node name="EnemySpawner" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 script = ExtResource("22_di2is")
-enemy_scenes = [ExtResource("18_rcyc4")]
+enemy_scenes = [ExtResource("18_rcyc4"), ExtResource("17_ie47u")]
 
 [node name="spawnpoint1" type="Node3D" parent="EnemySpawner"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0)
