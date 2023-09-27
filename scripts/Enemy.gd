@@ -13,7 +13,11 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var spawner: EnemySpawner = $".."
 @onready var player: CharacterBody3D = $"../../Player"
 @onready var sword: Node3D = $Sword
+@onready var sword_animation: AnimationPlayer = $Shiteyanyo/SwordAnimation
 @onready var anim_player: AnimationPlayer = $Shiteyanyo/AnimationPlayer
+
+func _ready():
+	sword_animation.play("Sword Rotate")
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -34,8 +38,6 @@ func enemy_ai(delta):
 	
 	if velocity.length() > 0:
 		anim_player.play("Walk", -1, 2)
-	
-	sword.rotate_y(SWORD_ROTATION_SPEED * delta)
 
 func jump():
 	velocity.y = JUMP_VELOCITY
