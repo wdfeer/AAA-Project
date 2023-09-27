@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://7577ojhb4roh"]
+[gd_scene load_steps=22 format=3 uid="uid://7577ojhb4roh"]
 
 [ext_resource type="Script" path="res://scripts/KillCounter.gd" id="1_3q7ul"]
 [ext_resource type="Texture2D" uid="uid://ceolwevbtxs1v" path="res://assets/crosshair.svg" id="2_hfkky"]
@@ -13,14 +13,7 @@
 [ext_resource type="Script" path="res://scripts/Skills/SkillPanel.gd" id="11_6royk"]
 [ext_resource type="Script" path="res://scripts/Skills/DamageSkill.gd" id="12_5wmp4"]
 [ext_resource type="Script" path="res://scripts/Skills/MaxHpSkill.gd" id="13_ojypw"]
-[ext_resource type="Script" path="res://scripts/Player.gd" id="14_2jitj"]
-[ext_resource type="Script" path="res://scripts/PlayerStats.gd" id="15_1pnwl"]
-[ext_resource type="Script" path="res://scripts/PlayerCamera.gd" id="16_7p4pv"]
-[ext_resource type="PackedScene" uid="uid://be7ja1bjje8xv" path="res://assets/sledgehammer_01_1k.gltf/sledgehammer_01_1k.gltf" id="17_s55l0"]
-[ext_resource type="Script" path="res://scripts/Sledgehammer.gd" id="18_kcayv"]
-[ext_resource type="PackedScene" uid="uid://dqsoqe73kqyxu" path="res://assets/colt_m1911/scene.gltf" id="19_yg8ua"]
-[ext_resource type="Script" path="res://scripts/Colt.gd" id="20_kbjgj"]
-[ext_resource type="AudioStream" uid="uid://bhk1uc55wyul2" path="res://assets/colt.ogg" id="21_iuvff"]
+[ext_resource type="PackedScene" uid="uid://csebtmqdqdua1" path="res://scenes/Player.tscn" id="14_5x4e5"]
 [ext_resource type="Script" path="res://scripts/EnemySpawner.gd" id="22_di2is"]
 [ext_resource type="PackedScene" uid="uid://eyx5u2pixgul" path="res://scenes/Shiteyanyo.tscn" id="23_vpo1p"]
 [ext_resource type="PackedScene" uid="uid://rdihksl83wam" path="res://scenes/Map.tscn" id="24_qfglw"]
@@ -40,13 +33,6 @@ background_mode = 2
 sky = SubResource("Sky_fcnkc")
 tonemap_mode = 2
 glow_enabled = true
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_fce6w"]
-size = Vector3(0.25, 0.1, 1)
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fdvc3"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_60cav"]
 
 [node name="Game" type="Node3D"]
 
@@ -289,45 +275,8 @@ environment = SubResource("Environment_b8hfi")
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
 shadow_enabled = true
 
-[node name="Player" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.41131, 9.53358)
-collision_mask = 6
-script = ExtResource("14_2jitj")
-
-[node name="PlayerStats" type="Node" parent="Player"]
-script = ExtResource("15_1pnwl")
-
-[node name="PlayerCamera" type="Camera3D" parent="Player"]
-transform = Transform3D(0.999971, 0.00760956, 0, -0.00760956, 0.999971, 0, 0, 0, 1, 0, 0.453843, 0)
-current = true
-script = ExtResource("16_7p4pv")
-
-[node name="Sledgehammer" parent="Player/PlayerCamera" instance=ExtResource("17_s55l0")]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -0.25, -2)
-visible = false
-script = ExtResource("18_kcayv")
-
-[node name="Area3D" type="Area3D" parent="Player/PlayerCamera/Sledgehammer"]
-transform = Transform3D(1, -4.65661e-10, 0, -2.77556e-17, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
-collision_layer = 0
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Player/PlayerCamera/Sledgehammer/Area3D"]
-transform = Transform3D(1, 9.60461e-32, 0, 9.86047e-32, 1, 0, 6.61744e-24, -1.27055e-21, 1, 0, 0, 0.23)
-shape = SubResource("BoxShape3D_fce6w")
-
-[node name="Colt" parent="Player/PlayerCamera" instance=ExtResource("19_yg8ua")]
-transform = Transform3D(5.78617e-07, -7.60934e-05, -0.00999971, -7.60934e-05, 0.00999942, -7.60956e-05, 0.00999971, 7.60956e-05, -4.37114e-10, 0.45, -0.3, -0.687)
-script = ExtResource("20_kbjgj")
-
-[node name="Sound" type="AudioStreamPlayer3D" parent="Player/PlayerCamera/Colt"]
-stream = ExtResource("21_iuvff")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
-shape = SubResource("CapsuleShape3D_fdvc3")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Player"]
-mesh = SubResource("CapsuleMesh_60cav")
+[node name="Player" parent="." instance=ExtResource("14_5x4e5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4, 13)
 
 [node name="EnemySpawner" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -338,5 +287,3 @@ enemy_scene = ExtResource("23_vpo1p")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0)
 
 [node name="map" parent="." instance=ExtResource("24_qfglw")]
-
-[connection signal="body_entered" from="Player/PlayerCamera/Sledgehammer/Area3D" to="Player/PlayerCamera/Sledgehammer" method="_on_body_entered"]
