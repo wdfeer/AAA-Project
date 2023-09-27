@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://csebtmqdqdua1"]
+[gd_scene load_steps=16 format=3 uid="uid://csebtmqdqdua1"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_5nijg"]
 [ext_resource type="Script" path="res://scripts/PlayerStats.gd" id="2_ceiru"]
+[ext_resource type="PackedScene" uid="uid://7577ojhb4roh" path="res://scenes/Game.tscn" id="2_n0ayk"]
 [ext_resource type="Script" path="res://scripts/PlayerCamera.gd" id="3_wh807"]
 [ext_resource type="PackedScene" uid="uid://be7ja1bjje8xv" path="res://assets/sledgehammer_01_1k.gltf/sledgehammer_01_1k.gltf" id="4_ahthx"]
 [ext_resource type="Script" path="res://scripts/Sledgehammer.gd" id="5_7pm4n"]
@@ -81,6 +82,7 @@ _data = {
 [node name="Player" type="CharacterBody3D"]
 collision_mask = 6
 script = ExtResource("1_5nijg")
+game_scene = ExtResource("2_n0ayk")
 
 [node name="PlayerStats" type="Node" parent="."]
 script = ExtResource("2_ceiru")
