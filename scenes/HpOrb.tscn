@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://2fumbwidxsb1"]
 
-[ext_resource type="Script" path="res://scripts/HpOrb.gd" id="1_6p00q"]
+[ext_resource type="Script" path="res://scripts/HpOrb.gd" id="1_46f70"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d4law"]
 albedo_color = Color(1, 0.196078, 0.137255, 1)
@@ -38,7 +38,7 @@ _data = {
 
 [node name="HpOrb" type="Area3D"]
 collision_layer = 4
-script = ExtResource("1_6p00q")
+script = ExtResource("1_46f70")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0151083, 0)
