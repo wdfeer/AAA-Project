@@ -7,8 +7,6 @@ extends Node3D
 
 var spawnpoints: PackedVector3Array
 
-const WAVE_INTERVAL: float = 5
-var wave_timer: float = 0
 var current_wave: int = 1
 var enemies_to_spawn: int = 1
 
@@ -24,20 +22,21 @@ func _ready():
 		node.queue_free()
 
 
+func _unhandled_input(event):
+	if enemies_to_spawn == 0 and event.is_action_pressed("next_wave"):
+		new_wave()
+
 func _process(delta):
-	if wave_timer < WAVE_INTERVAL and enemies_to_spawn <= 0:
-		wave_timer += delta
-	elif wave_timer >= WAVE_INTERVAL:
-		current_wave += 1
-		enemies_to_spawn = get_enemy_count(current_wave)
-		wave_timer = 0
-	
 	if enemies_to_spawn > 0:
 		spawn_timer -= delta
 		if spawn_timer <= 0:
 			spawn_enemy()
 			spawn_timer = get_spawn_cooldown()
 			enemies_to_spawn -= 1
+
+func new_wave():
+	current_wave += 1
+	enemies_to_spawn = get_enemy_count(current_wave)
 
 func get_enemy_count(wave: int):
 	return 1 + int((wave - 1) / 3.0)

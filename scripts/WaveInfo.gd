@@ -6,7 +6,7 @@ func _process(delta):
 	var result: String = "Wave "
 	
 	if enemy_spawner.enemies_to_spawn == 0:
-		result += str(enemy_spawner.current_wave + 1) + " in " + str(int(EnemySpawner.WAVE_INTERVAL - enemy_spawner.wave_timer))
+		result += str(enemy_spawner.current_wave + 1) + ": Press [Enter]"
 	else:
 		result += str(enemy_spawner.current_wave)
 	
