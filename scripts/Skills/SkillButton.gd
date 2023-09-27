@@ -11,7 +11,9 @@ func _ready():
 func _pressed():
 	if player_stats.skill_points < get_cost():
 		return
-	player_stats.update_skills.connect(apply_upgrade)
+	
+	if not player_stats.update_skills.is_connected(apply_upgrade):
+		player_stats.update_skills.connect(apply_upgrade)
 	player_stats.deduct_skill_points(get_cost())
 	lvl += 1
 	update_text()
