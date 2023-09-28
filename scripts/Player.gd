@@ -56,7 +56,6 @@ func heal(value: float):
 	
 	hp_hud.set_hp(int(hp))
 
-@export var game_scene: PackedScene
 
 func die():
-	get_tree().change_scene_to_packed(game_scene)	
+	get_tree().reload_current_scene()
