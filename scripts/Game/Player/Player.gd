@@ -58,4 +58,7 @@ func heal(value: float):
 
 
 func die():
-	get_tree().reload_current_scene()
+	call_deferred("reload_scene")
+
+func reload_scene():
+	get_tree().reload_current_scene()	

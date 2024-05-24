@@ -42,36 +42,42 @@ _subresources={
 },
 "nodes": {
 "PATH:Node2/Node32/Mesh2": {
+"generate/navmesh": 1,
 "generate/physics": true,
 "physics/layer": 15,
 "physics/mask": 0,
 "physics/shape_type": 2
 },
 "PATH:Node2/Node32/Mesh32": {
+"generate/navmesh": 1,
 "generate/physics": true,
 "physics/layer": 15,
 "physics/mask": 0,
 "physics/shape_type": 2
 },
 "PATH:Node2/Node32/Mesh42": {
+"generate/navmesh": 1,
 "generate/physics": true,
 "physics/layer": 15,
 "physics/mask": 0,
 "physics/shape_type": 2
 },
 "PATH:Node2/Node32/Mesh52": {
+"generate/navmesh": 1,
 "generate/physics": true,
 "physics/layer": 15,
 "physics/mask": 0,
 "physics/shape_type": 2
 },
 "PATH:Node2/Node42/Mesh62": {
+"generate/navmesh": 1,
 "generate/physics": true,
 "physics/layer": 15,
 "physics/mask": 0,
 "physics/shape_type": 2
 },
 "PATH:Node2/Node42/Mesh72": {
+"generate/navmesh": 1,
 "generate/physics": true,
 "physics/layer": 15,
 "physics/mask": 0,

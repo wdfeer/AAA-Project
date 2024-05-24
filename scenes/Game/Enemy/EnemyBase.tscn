@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://btbag01g5y0mq"]
+[gd_scene load_steps=4 format=3 uid="uid://btbag01g5y0mq"]
 
 [ext_resource type="Script" path="res://scripts/Game/Enemy/EnemyBase.gd" id="1_ivung"]
 [ext_resource type="PackedScene" uid="uid://2fumbwidxsb1" path="res://scenes/Game/HpOrb.tscn" id="2_3nicq"]
+[ext_resource type="Script" path="res://scripts/Game/Enemy/NavigationAgent.gd" id="3_1tkkd"]
 
 [node name="EnemyBase" type="CharacterBody3D"]
 collision_layer = 2
@@ -13,3 +14,7 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.7
 pixel_size = 0.0025
 text = "100"
 font_size = 64
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+target_desired_distance = 0.5
+script = ExtResource("3_1tkkd")

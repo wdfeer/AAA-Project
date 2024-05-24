@@ -7,23 +7,8 @@
 [node name="Mesh2" parent="Node2/Node32" index="0"]
 layers = 3
 
-[node name="StaticBody3D" parent="Node2/Node32/Mesh2" index="0"]
-collision_layer = 3
-
-[node name="Mesh32" parent="Node2/Node32" index="1"]
-layers = 3
-
-[node name="StaticBody3D" parent="Node2/Node32/Mesh32" index="0"]
-collision_layer = 3
-
 [node name="Mesh42" parent="Node2/Node32" index="2"]
 layers = 3
 
-[node name="StaticBody3D" parent="Node2/Node32/Mesh42" index="0"]
-collision_layer = 3
-
 [node name="Mesh52" parent="Node2/Node32" index="3"]
 layers = 3
-
-[node name="StaticBody3D" parent="Node2/Node32/Mesh52" index="0"]
-collision_layer = 3

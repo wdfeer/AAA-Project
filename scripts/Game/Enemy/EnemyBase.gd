@@ -4,7 +4,6 @@ extends CharacterBody3D
 @onready var spawner: EnemySpawner = $".."
 @onready var player: CharacterBody3D = $"../../Player"
 
-
 @onready var hp_label: Label3D = $HpLabel
 var hp: float = 100
 
@@ -13,7 +12,6 @@ func damage(value: float):
 	hp_label.text = str(hp)
 	if hp <= 0:
 		die()
-
 
 const HP_DROP_CHANCE: float = 0.4
 @export var hp_orb_scene: PackedScene
@@ -27,3 +25,6 @@ func die():
 		hp_orb.global_position = global_position
 	
 	spawner.enemy_died.emit()
+
+func get_movement_target():
+	return $NavigationAgent3D.get_next_path_position()
