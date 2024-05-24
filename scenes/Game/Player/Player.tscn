@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://csebtmqdqdua1"]
+[gd_scene load_steps=16 format=3 uid="uid://csebtmqdqdua1"]
 
 [ext_resource type="Script" path="res://scripts/Game/Player/Player.gd" id="1_5nijg"]
 [ext_resource type="Script" path="res://scripts/Game/Player/PlayerStats.gd" id="2_ceiru"]
@@ -8,6 +8,11 @@
 [ext_resource type="PackedScene" uid="uid://dqsoqe73kqyxu" path="res://assets/Models/colt_m1911/scene.gltf" id="6_tt70f"]
 [ext_resource type="Script" path="res://scripts/Game/Player/Weapons/Colt.gd" id="7_o7faa"]
 [ext_resource type="AudioStream" uid="uid://bhk1uc55wyul2" path="res://assets/SFX/colt.ogg" id="8_vctes"]
+
+[sub_resource type="Environment" id="Environment_tuvlb"]
+ssao_enabled = true
+glow_enabled = true
+fog_enabled = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fce6w"]
 size = Vector3(0.25, 0.1, 1)
@@ -87,7 +92,9 @@ script = ExtResource("2_ceiru")
 
 [node name="PlayerCamera" type="Camera3D" parent="."]
 transform = Transform3D(0.999971, 0.00760956, 0, -0.00760956, 0.999971, 0, 0, 0, 1, 0, 0.453843, 0)
+environment = SubResource("Environment_tuvlb")
 current = true
+fov = 85.0
 script = ExtResource("3_wh807")
 
 [node name="Sledgehammer" parent="PlayerCamera" instance=ExtResource("4_ahthx")]
