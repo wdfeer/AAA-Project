@@ -1,12 +1,12 @@
 [gd_scene load_steps=15 format=3 uid="uid://csebtmqdqdua1"]
 
-[ext_resource type="Script" path="res://scripts/Player.gd" id="1_5nijg"]
-[ext_resource type="Script" path="res://scripts/PlayerStats.gd" id="2_ceiru"]
-[ext_resource type="Script" path="res://scripts/PlayerCamera.gd" id="3_wh807"]
+[ext_resource type="Script" path="res://scripts/Game/Player/Player.gd" id="1_5nijg"]
+[ext_resource type="Script" path="res://scripts/Game/Player/PlayerStats.gd" id="2_ceiru"]
+[ext_resource type="Script" path="res://scripts/Game/Player/PlayerCamera.gd" id="3_wh807"]
 [ext_resource type="PackedScene" uid="uid://be7ja1bjje8xv" path="res://assets/Models/sledgehammer_01_1k.gltf/sledgehammer_01_1k.gltf" id="4_ahthx"]
-[ext_resource type="Script" path="res://scripts/Sledgehammer.gd" id="5_7pm4n"]
+[ext_resource type="Script" path="res://scripts/Game/Player/Weapons/Sledgehammer.gd" id="5_7pm4n"]
 [ext_resource type="PackedScene" uid="uid://dqsoqe73kqyxu" path="res://assets/Models/colt_m1911/scene.gltf" id="6_tt70f"]
-[ext_resource type="Script" path="res://scripts/Colt.gd" id="7_o7faa"]
+[ext_resource type="Script" path="res://scripts/Game/Player/Weapons/Colt.gd" id="7_o7faa"]
 [ext_resource type="AudioStream" uid="uid://bhk1uc55wyul2" path="res://assets/SFX/colt.ogg" id="8_vctes"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fce6w"]

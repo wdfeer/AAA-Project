@@ -1,9 +1,9 @@
 [gd_scene load_steps=11 format=3 uid="uid://eyx5u2pixgul"]
 
-[ext_resource type="PackedScene" uid="uid://btbag01g5y0mq" path="res://scenes/EnemyBase.tscn" id="1_y1ss4"]
-[ext_resource type="Script" path="res://scripts/Shiteyanyo.gd" id="2_2m4eb"]
+[ext_resource type="PackedScene" uid="uid://btbag01g5y0mq" path="res://scenes/Game/Enemy/EnemyBase.tscn" id="1_y1ss4"]
+[ext_resource type="Script" path="res://scripts/Game/Enemy/Variants/Shiteyanyo.gd" id="2_2m4eb"]
 [ext_resource type="PackedScene" uid="uid://bl1bjmh3w0mv0" path="res://assets/Models/sword/sword.gltf" id="2_7v2x3"]
-[ext_resource type="Script" path="res://scripts/Sword.gd" id="2_oq2ie"]
+[ext_resource type="Script" path="res://scripts/Game/Enemy/Variants/Sword.gd" id="2_oq2ie"]
 [ext_resource type="PackedScene" uid="uid://dpgejo5b8aot5" path="res://assets/Models/shiteyanyo_hatsune_miku/shiteyanyo.gltf" id="4_a6rxw"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_o3n8p"]

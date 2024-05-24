@@ -1,9 +1,9 @@
 [gd_scene load_steps=12 format=3 uid="uid://ddg4hfiawrh0w"]
 
-[ext_resource type="PackedScene" uid="uid://btbag01g5y0mq" path="res://scenes/EnemyBase.tscn" id="1_gii8c"]
+[ext_resource type="PackedScene" uid="uid://btbag01g5y0mq" path="res://scenes/Game/Enemy/EnemyBase.tscn" id="1_gii8c"]
 [ext_resource type="PackedScene" uid="uid://bpx3cqm3aglww" path="res://assets/Models/eye.glb" id="2_ga2p0"]
-[ext_resource type="Script" path="res://scripts/Eye.gd" id="2_j1723"]
-[ext_resource type="Script" path="res://scripts/EyeLaser.gd" id="4_eo2cr"]
+[ext_resource type="Script" path="res://scripts/Game/Enemy/Variants/Eye.gd" id="2_j1723"]
+[ext_resource type="Script" path="res://scripts/Game/Enemy/Variants/EyeLaser.gd" id="4_eo2cr"]
 
 [sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_n8rny"]
 length = 10.0
