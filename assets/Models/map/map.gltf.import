@@ -1,0 +1,83 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://ck0b256cue6x0"
+path="res://.godot/imported/map.gltf-883eaad581011eb26c4e74d39bb891e4.scn"
+
+[deps]
+
+source_file="res://assets/Models/map/map.gltf"
+dest_files=["res://.godot/imported/map.gltf-883eaad581011eb26c4e74d39bb891e4.scn"]
+
+[params]
+
+nodes/root_type="Node3D"
+nodes/root_name="Scene Root"
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+import_script/path=""
+_subresources={
+"materials": {
+"Material.1": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/Models/map/Material.1.tres"
+},
+"Material.2": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/Models/map/Material.2.tres"
+}
+},
+"nodes": {
+"PATH:Node2/Node32/Mesh2": {
+"generate/physics": true,
+"physics/layer": 15,
+"physics/mask": 0,
+"physics/shape_type": 2
+},
+"PATH:Node2/Node32/Mesh32": {
+"generate/physics": true,
+"physics/layer": 15,
+"physics/mask": 0,
+"physics/shape_type": 2
+},
+"PATH:Node2/Node32/Mesh42": {
+"generate/physics": true,
+"physics/layer": 15,
+"physics/mask": 0,
+"physics/shape_type": 2
+},
+"PATH:Node2/Node32/Mesh52": {
+"generate/physics": true,
+"physics/layer": 15,
+"physics/mask": 0,
+"physics/shape_type": 2
+},
+"PATH:Node2/Node42/Mesh62": {
+"generate/physics": true,
+"physics/layer": 15,
+"physics/mask": 0,
+"physics/shape_type": 2
+},
+"PATH:Node2/Node42/Mesh72": {
+"generate/physics": true,
+"physics/layer": 15,
+"physics/mask": 0,
+"physics/shape_type": 2
+}
+}
+}
+gltf/naming_version=0
+gltf/embedded_image_handling=0

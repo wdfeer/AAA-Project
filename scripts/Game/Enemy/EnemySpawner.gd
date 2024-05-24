@@ -7,8 +7,8 @@ extends Node3D
 
 var spawnpoints: PackedVector3Array
 
-var current_wave: int = 1
-var enemies_to_spawn: int = 1
+var current_wave: int = 0
+var enemies_to_spawn: int = 0
 
 func get_spawn_cooldown():
 	return 2 / pow(current_wave, 0.6)

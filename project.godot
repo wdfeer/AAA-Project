@@ -19,7 +19,6 @@ config/icon="res://assets/Images/icon.svg"
 
 window/size/viewport_width=1600
 window/size/viewport_height=900
-window/size/mode=3
 
 [dotnet]
 
@@ -68,3 +67,4 @@ next_wave={
 3d_physics/layer_1="Player"
 3d_physics/layer_2="Enemy"
 3d_physics/layer_3="PlayerPickup"
+3d_physics/layer_4="Environment"

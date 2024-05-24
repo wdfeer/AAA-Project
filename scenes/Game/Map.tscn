@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://rdihksl83wam"]
 
-[ext_resource type="PackedScene" uid="uid://ck0b256cue6x0" path="res://assets/Models/map.gltf" id="1_cwqk1"]
+[ext_resource type="PackedScene" uid="uid://ck0b256cue6x0" path="res://assets/Models/map/map.gltf" id="1_cwqk1"]
 
 [node name="map" instance=ExtResource("1_cwqk1")]
 
@@ -26,28 +26,4 @@ collision_layer = 3
 layers = 3
 
 [node name="StaticBody3D" parent="Node2/Node32/Mesh52" index="0"]
-collision_layer = 3
-
-[node name="Mesh62" parent="Node2/Node42" index="0"]
-layers = 3
-
-[node name="StaticBody3D" parent="Node2/Node42/Mesh62" index="0"]
-collision_layer = 3
-
-[node name="Mesh72" parent="Node2/Node42" index="1"]
-layers = 3
-
-[node name="StaticBody3D" parent="Node2/Node42/Mesh72" index="0"]
-collision_layer = 3
-
-[node name="Mesh82" parent="Node2/Node42" index="2"]
-layers = 3
-
-[node name="StaticBody3D" parent="Node2/Node42/Mesh82" index="0"]
-collision_layer = 3
-
-[node name="Mesh92" parent="Node2/Node42" index="3"]
-layers = 3
-
-[node name="StaticBody3D" parent="Node2/Node42/Mesh92" index="0"]
 collision_layer = 3
