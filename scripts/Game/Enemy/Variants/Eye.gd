@@ -23,6 +23,7 @@ func enemy_ai():
 
 func move(delta):
 	var direction: Vector3 = global_position.direction_to(get_movement_target())
+	direction.y = 0
 	velocity = direction * delta * SPEED
 
 func can_see_player():

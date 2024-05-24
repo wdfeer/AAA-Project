@@ -107,3 +107,6 @@ shape = SubResource("SphereShape3D_fgb0v")
 libraries = {
 "": SubResource("AnimationLibrary_l1o1s")
 }
+
+[node name="NavigationAgent3D" parent="." index="4"]
+path_desired_distance = 2.0
