@@ -1,7 +1,7 @@
 class_name PlayerStats
 extends Node
 
-@onready var XpHUD: XpHUD = $"../../UI/XpHUD"
+@onready var xpHud: XpHUD = $"../../UI/XpHUD"
 
 func _ready():
 	$"../../EnemySpawner".connect("enemy_died", _on_enemy_death)
@@ -20,12 +20,12 @@ func update_lvl():
 		skill_points += 1
 		level_up.emit()
 
-func get_xp_for_lvl(lvl: int):
-	return int(pow(1.5, lvl) + 2)
+func get_xp_for_lvl(level: int):
+	return int(pow(1.5, level) + 2)
 
 func update_xp_display():
 	update_lvl()
-	XpHUD.set_display(xp_progress / float(get_xp_for_lvl(lvl + 1)), lvl)
+	xpHud.set_display(xp_progress / float(get_xp_for_lvl(lvl + 1)), lvl)
 
 func add_xp(amount: int):
 	xp_progress += amount

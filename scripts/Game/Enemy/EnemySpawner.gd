@@ -45,7 +45,7 @@ func spawn_enemy():
 	var enemy: EnemyBase = enemy_scenes.pick_random().instantiate()
 	add_child(enemy)
 	
-	var position = spawnpoints[rng.randi_range(0, len(spawnpoints) - 1)]
-	enemy.global_position = position
+	var pos = spawnpoints[rng.randi_range(0, len(spawnpoints) - 1)]
+	enemy.global_position = pos
 
 signal enemy_died
